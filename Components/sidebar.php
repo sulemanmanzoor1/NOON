@@ -81,21 +81,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/record_fabric.php" class="nav-link">
+                <a href="record_fabric.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fabric Record</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/record_cutting.php" class="nav-link">
+                <a href="record_cutting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cutting Record</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/record_stiching.php" class="nav-link">
+                <a href="record_stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Record</p>
                 </a>

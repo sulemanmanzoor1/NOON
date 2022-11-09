@@ -58,16 +58,26 @@
               <!-- /.card-header -->
                 <!-- form start -->
                 <form id="quickForm">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Total Fabric</label>
-                    <input type="text" name="fabric" class="form-control" id="exampleInputEmail1" placeholder="Enter Fabric in kg">
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Select Date</label>
+                          <input type="Date" name="date" class="form-control" id="exampleInputEmail1" >
+                        </div>
+                      </div>
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1" class="mt-3">Total Fabric</label>
+                          <input type="text" name="fabric" class="form-control " id="exampleInputEmail1" placeholder="Enter Fabric Amount in kg">
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
               </form>
             </div>
             <!-- /.card -->

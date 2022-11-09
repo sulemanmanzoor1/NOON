@@ -33,7 +33,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cutting Fabric Details </h1>
+            <h1>Stitching Fabric Details </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,6 +61,12 @@
                 <form id="quickForm">
                   <div class="row">
                     <div class="card-body">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Select Date</label>
+                          <input type="Date" name="date" class="form-control" id="exampleInputEmail1" >
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Cutting Fabric</label>
