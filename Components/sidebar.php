@@ -28,7 +28,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="./index.php" class="nav-link active">
+            <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -107,13 +107,38 @@
             <a href="#" class="nav-link">
             <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
               <p>
-                Salary
+                Add Employee
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.php" class="nav-link">
+                <a href="month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthy</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/forms/validation.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Base</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
+              <p>
+                Record Salary
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="record_month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>

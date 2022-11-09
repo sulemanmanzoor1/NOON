@@ -3,49 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fabric</title>
+  <title>AdminLTE 3 | Dashboard 3</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.css">
 </head>
+<!--
+`body` tag options:
+
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
     <?php
-      @include('../../Components/header.php')
+      @include('../../components/header.php');
+
     ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    <?php
+  <?php
       @include('../../Components/sidebar.php')
     ?>
+
+
+
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Total Fabric </h1>
-          </div>
+            <h1 class="m-0">Salary </h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Add Fabric </li>
+              <li class="breadcrumb-item active">Salary</li>
             </ol>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
+      <div class="container-fluid">
+      <section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -53,7 +74,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                
+                Salary <small>per month</small>
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
@@ -62,14 +83,21 @@
                     <div class="card-body">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Select Date</label>
-                          <input type="Date" name="date" class="form-control" id="exampleInputEmail1" >
+                          <label for="exampleInputEmail1">Name</label>
+                          <input type="text" name="emp_name" class="form-control" id="" placeholder="Enter Employee Name">
                         </div>
                       </div>
-                      <div class="col-md-6 ">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1" class="mt-3">Total Fabric</label>
-                          <input type="text" name="fabric" class="form-control " id="exampleInputEmail1" placeholder="Enter Fabric Amount in kg">
+                          <label for="exampleInputEmail1">Services</label>
+                          <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Price</label>
+                          <input type="number" name="services" class="form-control" id="" placeholder="Enter Rate">
+                          
                         </div>
                       </div>
                     </div>
@@ -92,81 +120,50 @@
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer>
 </div>
 <!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
+
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
+<!-- <script src="plugins/jquery/jquery.min.js"></script> -->
+<!-- Bootstrap -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<!-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<!-- AdminLTE -->
+<script src="../../dist/js/adminlte.js"></script>
+<!-- <script src="dist/js/adminlte.js"></script> -->
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="../../plugins/chart.js/Chart.min.js"></script>
+<!-- <script src="plugins/chart.js/Chart.min.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
-</script>
+<!-- <script src="dist/js/demo.js"></script> -->
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard3.js"></script>
 </body>
 </html>

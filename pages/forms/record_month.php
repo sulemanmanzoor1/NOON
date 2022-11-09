@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Stitching Record</title>
+  <title>All Fabric Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,15 +15,15 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-    <?php
-      @include('../../Components/header.php');
-    ?>
+  <?php 
+    @include('../../Components/header.php')
+  ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php
-      @include('../../Components/sidebar.php');
-    ?>
+  <?php 
+    @include('../../Components/sidebar.php')
+  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -32,12 +32,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Stitching</h1>
+            <h1>All Employee </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Stiching Record</li>
+              <li class="breadcrumb-item active">All Employee</li>
             </ol>
           </div>
         </div>
@@ -53,48 +53,48 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Stitching Fabric  Record</h3>
+                <h3 class="card-title">Employee <small></small></h3>
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <table class="table ">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Total Fabric</th>
-                        <th>Cutting Fabric</th>
-                        <th>Remaining Fabric</th>
-                        <th>Date(D/M/Y)</th>
+                        <th>Name</th>
+                        <th>Date (D/M/Y)</th>
+                        <th>Services</th>
+                        <th>Price</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>2.0</td>
-                      <td>2.4</td>
-                      <td>0.4</td>
-                      <td>22/12/2022</td>
-                      <td>Edit/Del</td>
+                        <td>1</td>
+                        <td>jack</td>
+                        <td>03/12/14</td>
+                        <td>kolar</td>
+                        <td>20</td>
+                        <td>Edit/Delete</td>
                     </tr>
                     <tr>
-                      <td>2</td>
-                      <td>1.1</td>
-                      <td>2.2</td>
-                      <td>1.1</td>
-                      <td>22/12/2022</td>
-                      <td>Edit/Del</td>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>03/12/14</td>
+                        <td>arms</td>
+                        <td>22</td>
+                        <td>Edit/Delete</td>
                     </tr>
                     <tr>
-                      <td>3</td>
-                      <td>2.3</td>
-                      <td>2.0</td>
-                      <td>0.3</td>
-                      <td>22/12/2022</td>
-                      <td>Edit/Del</td>
+                        <td>3</td>
+                        <td>Bili</td>
+                        <td>03/12/14</td>
+                        <td>front and back</td>
+                        <td>18</td>
+                        <td>Edit/Delete</td>
                     </tr>
                     </tbody>
-                </table
+                </table>
             </div>
             <!-- /.card -->
             </div>

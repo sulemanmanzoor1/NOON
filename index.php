@@ -142,20 +142,45 @@
             <a href="#" class="nav-link">
             <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
               <p>
-                Salary
+                Add Employee
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.php" class="nav-link">
+                <a href="pages/forms/month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/validation.php" class="nav-link">
+                <a href="pages/forms/year.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Base</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
+              <p>
+                Record Salary
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/record_month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthy</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/forms/year.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Base</p>
                 </a>
@@ -340,7 +365,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
