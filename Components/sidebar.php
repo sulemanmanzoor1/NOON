@@ -49,21 +49,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/fabric.php" class="nav-link">
+                <a href="fabric.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fabric</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/cutting.php" class="nav-link">
+                <a href="cutting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cutting Fabric</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/stiching.php" class="nav-link">
+                <a href="stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Fabric</p>
                 </a>
