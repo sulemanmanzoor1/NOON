@@ -3,6 +3,7 @@
 @include('../connection.php');
 
 $date = $name=$fabric = $purpose="";
+
 if(isset($_POST['submit'])){
    if(empty($_POST['date'])) {
     echo "<script> alert(Pleade fill all field) </script>";
@@ -29,6 +30,7 @@ if(isset($_POST['submit'])){
      }
    $query = mysqli_query($con,"INSERT INTO `fabric`( `date`,  `name`, `fabric`,`purpose`) VALUES ('$date','$name','$fabric','$purpose') ");
    if($query){
+      
       header("location:'../fabric.php'");
         
    }else{

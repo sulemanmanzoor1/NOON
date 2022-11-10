@@ -74,32 +74,38 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                Salary <small>per month</small>
+                
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
                 <form id="quickForm">
                   <div class="row">
                     <div class="card-body">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Name</label>
-                          <input type="text" name="emp_name" class="form-control" id="" placeholder="Enter Employee Name">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Name</label>
+                              <input type="text" name="emp_name" class="form-control" id="" placeholder="Enter Employee Name">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Services</label>
+                              <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Price</label>
+                              <input type="number" name="services" class="form-control" id="" placeholder="Enter Rate">
+                              
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Services</label>
-                          <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Price</label>
-                          <input type="number" name="services" class="form-control" id="" placeholder="Enter Rate">
-                          
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                   <!-- /.card-body -->

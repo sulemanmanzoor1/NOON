@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Fabric Record</title>
+  <title>Status Equipment</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,12 +32,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Fabric </h1>
+            <h1>Status Equipment</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">All Fabric</li>
+              <li class="breadcrumb-item active">Status</li>
             </ol>
           </div>
         </div>
@@ -61,7 +61,10 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Fabric (in kg)</th>
+                        <th>Equipment Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Status</th>
                         <th>Date (D/M/Y)</th>
                         <th>Operations</th>
                     </tr>
@@ -69,19 +72,28 @@
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>4.4</td>
+                        <td>aa</td>
+                        <td>10</td>
+                        <td>200</td>
+                        <td>OLD</td>
                         <td>03/12/14</td>
                         <td>Edit/Delete</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>3.3</td>
+                        <td>bb</td>
+                        <td>30</td>
+                        <td>400</td>
+                        <td>NEW</td>
                         <td>03/12/14</td>
                         <td>Edit/Delete</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>4.3</td>
+                        <td>cc</td>
+                        <td>60</td>
+                        <td>700</td>
+                        <td>--</td>
                         <td>03/12/14</td>
                         <td>Edit/Delete</td>
                     </tr>

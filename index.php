@@ -108,7 +108,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-copy" style="font-size:14px;"></i>
+            <i class="nav-icon fas fa-table"></i>
               <p>
                 Record Table
                 <i class="fas fa-angle-left right"></i>
@@ -142,7 +142,7 @@
             <a href="#" class="nav-link">
             <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
               <p>
-                Add Employee
+                Salary
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -151,13 +151,6 @@
                 <a href="pages/forms/month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="pages/forms/year.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Base</p>
                 </a>
               </li>
             </ul>
@@ -178,171 +171,33 @@
                   <p>Monthy</p>
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a href="pages/forms/year.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Base</p>
-                </a>
-              </li>
             </ul>
           </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit" style="font-size:14px ;"></i>
+            <i class="nav-icon 	far fa-sun" style="font-size:14px;"></i>
               <p>
-                Forms
+                Factory Equipment
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.php" class="nav-link">
+                <a href="pages/forms/add_equipment.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Add Equipment</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="pages/forms/validation.php" class="nav-link">
+                <a href="pages/forms/status_equipem.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
+                  <p>Status</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-
-
-          <li class="nav-item">
-            <a href="pages/kanban.php" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Kanban Board
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/read-mail.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="pages/examples/contact-us.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contact us</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Login & Register v2
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/examples/login-v2.php" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Login v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/register-v2.php" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Register v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/forgot-password-v2.php" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Forgot Password v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/recover-password-v2.php" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Recover Password v2</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-
 
         </ul>
       </nav>

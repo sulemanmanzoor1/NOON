@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Fabric Record</title>
+  <title>Fabric</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,15 +15,15 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php 
-    @include('../../Components/header.php')
-  ?>
+    <?php
+      @include('../../Components/header.php')
+    ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php 
-    @include('../../Components/sidebar.php')
-  ?>
+    <?php
+      @include('../../Components/sidebar.php');
+    ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -32,12 +32,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Fabric </h1>
+            <h1>Add Equipment </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">All Fabric</li>
+              <li class="breadcrumb-item active">Add Equipment </li>
             </ol>
           </div>
         </div>
@@ -53,40 +53,61 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title"> <small></small></h3>
+                
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>ID #</th>
-                        <th>Fabric (in kg)</th>
-                        <th>Date (D/M/Y)</th>
-                        <th>Operations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>4.4</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>3.3</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>4.3</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <form id="frm" action="Backend/Send/add_equipment.php" method="POST">
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Select Date</label>
+                              <input type="Date" name="date" class="form-control" id="exampleInputEmail1" >
+                            </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Add Equipment</label>
+                              <input type="text" name="add_equipment" class="form-control " id="exampleInputEmail1" placeholder="Enter Equipment Name">
+                            </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Quantity </label>
+                              <input type="number" name="quantity" class="form-control " id="exampleInputEmail1" placeholder="Enter Quantity ">
+                            </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Purchase Price</label>
+                              <input type="number" name="purchase" class="form-control " id="exampleInputEmail1" placeholder="Enter Purchase Price">
+                            </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Status </label>
+                              <select name="add_status" id="" class="form-control">
+                                <option value="--"> -- Status Equipment</option>
+                                <option value="new">New</option>
+                                <option value="old">Old</option>
+                              </select>
+                              <!-- <input type="text" name="quantity" class="form-control " id="exampleInputEmail1" placeholder="Enter Quantity "> -->
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
             </div>
             <!-- /.card -->
             </div>
