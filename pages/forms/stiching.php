@@ -12,6 +12,31 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- Jquery validation plug in  -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+  <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
+  <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
+  <script src="../../dist/js/validation.js"></script>
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+    .error{
+      color: red;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -58,7 +83,7 @@
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm">
+                <form id="frm" action="" method="">
                   <div class="row">
                     <div class="card-body">
                       <div class="col-md-6">
@@ -70,20 +95,20 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Cutting Fabric</label>
-                          <input type="text" name="cut_fab" class="form-control" id="exampleInputEmail1" placeholder="Enter Fabric in kg">
+                          <input type="number" name="cut_fab" class="form-control" id="cut_fab" placeholder="Enter Fabric in kg">
                         </div>
                       </div>
                       <div class="col-md-6 ">
                         <div class="form-group">
                           <label for="exampleInputEmail1" class="mt-3">Stitching Febric</label>
-                          <input type="text" name="sti_fab" class="form-control " id="exampleInputEmail1" placeholder="Enter Cutting Fabric in kg">
+                          <input type="number" name="sti_fab" class="form-control " id="sti_fab" placeholder="Enter Cutting Fabric in kg">
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                   </div>
               </form>
             </div>
@@ -125,51 +150,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
-</script>
+
 </body>
 </html>
