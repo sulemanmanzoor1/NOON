@@ -1,3 +1,8 @@
+<?php
+  @include('Backend/connection.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,7 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -61,30 +67,47 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Fabric (in kg)</th>
-                        <th>Date (D/M/Y)</th>
+                        <th>Name</th>
+                        <th>Receieved Fabric</th>            
+                        <th>Purpose</th>                        
+                        <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>4.4</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>3.3</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>4.3</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
+                    <?php
+                      $select = mysqli_query($con,"SELECT * FROM `fabric` "); 
+                      
+                      if(mysqli_num_rows($select)>0){
+                        while($row = mysqli_fetch_array($select)){
+                          $id = $row['id'];
+                          $date = $row['date'];
+                          $name = $row['name'];
+                          $fabric = $row['fabric'];
+                          $purpose = $row['purpose'];
+
+                          ?>
+                            <tr>
+                              <td><?php echo $id?></td>
+                              <td><?php echo $name?></td>
+                              <td><?php echo $fabric?></td>
+                              <td><?php echo $purpose?></td>
+                              <td><?php echo $date?></td>
+                              <td>
+                                <a href="Backend/edit/fabric_edit.php?<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
+                              
+                                <a href="Backend/edit/fabric_edit.php?<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                
+                              </td>
+                            </tr>
+
+                          <?php
+                        }
+                      }
+
+                    ?>
+                   
+                   
                     </tbody>
                 </table>
             </div>
