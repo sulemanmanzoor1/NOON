@@ -94,9 +94,9 @@
                               <td><?php echo $purpose?></td>
                               <td><?php echo $date?></td>
                               <td>
-                                <a href="Backend/edit/fabric_edit.php?<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
+                                <a href="Backend/edit/fabric_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
                               
-                                <a href="Backend/edit/fabric_edit.php?<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                <a href="Backend/Del/del_fabric.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                                 
                               </td>
                             </tr>

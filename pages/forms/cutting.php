@@ -85,7 +85,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="frm">
+                <form id="frm" action="Backend/Send/cutting.php" method="POST">
                   <div class="row">
                     <div class="card-body">
 
