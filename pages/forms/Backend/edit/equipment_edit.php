@@ -143,7 +143,7 @@ if(isset($_POST['update'])){
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <form id="frm" action="" method="POST">
+                <form id="frm" action="Backend/" method="POST">
                 <input type="hidden" value="<?php echo $edit['id'];?>">
                   <div class="row">
                     <div class="card-body">

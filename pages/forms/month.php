@@ -37,6 +37,29 @@
       font-weight: normal;
     }
   </style>
+      <script>
+        $(document).ready(function() {         
+        var html = '<tr><td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td><td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td><td><input class="btn btn-danger" type="button" value="-" id="remove" name="remove"></td></tr>';
+            var max = 100000;
+            var x = 1;
+            $("#add").click(function(){
+            //    alert("Its working");
+                if( x<=max ){
+                    $("#table").append(html);
+                    x++;
+                }
+            }); 
+
+            $("#table").on('click', '#remove',function(){
+            //  alert("Its working");
+                $(this).closest('tr').remove();
+                x--;
+
+            }); 
+
+
+        });
+    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -99,7 +122,19 @@
                                 <input type="text" name="name" class="form-control" id="" placeholder="Enter Employee Name">
                               </div>
                             </div>
-                            <div class="col-md-6">
+                            <table class="table table-bordered" id="table" >
+                              <tr>
+                                  <th>Services</th>
+                                  <th>Price</th>
+                                  <th>Add</th>
+                              </tr>
+                              <tr>
+                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td>
+                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td>
+                                  <td><input class="btn btn-success" type="button" value="+" id="add" name="add"></td>
+                              </tr>
+                            </table>
+                            <!-- <div class="col-md-6">
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Services</label>
                                 <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
@@ -111,7 +146,7 @@
                                 <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
                                 
                               </div>
-                            </div>
+                            </div> -->
 
                           </div>
                         </div>
