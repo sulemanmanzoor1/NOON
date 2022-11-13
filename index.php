@@ -26,10 +26,21 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-    <?php
-      @include('components/header.php');
 
-    ?>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="index.php" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <!-- <a href="   index.php" class="nav-link">Home</a> -->
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">   
+    </ul>
+  </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -221,7 +232,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <!-- <li class="breadcrumb-item active">Dashboard</li> -->
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
