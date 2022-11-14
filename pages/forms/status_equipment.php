@@ -38,6 +38,8 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
               <li class="breadcrumb-item active">Status</li>
+              <!-- <li class="breadcrumb-item active"><a href="  add_equipment.php">Add</a></li> -->
+              <!-- <li class="breadcrumb-item active"><a href="report/equipment.php">Report</a></li> -->
             </ol>
           </div>
         </div>

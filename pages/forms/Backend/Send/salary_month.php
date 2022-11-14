@@ -6,10 +6,10 @@ $name = $services = $price = "";
 
 if(isset($_POST['submit'])){
 
-   if(empty($_POST['name'])) {
+   if(empty($_POST['s_name'])) {
     echo "<script> alert(Please fill all field) </script>";
    }else{
-    $name=$_POST['name'];
+    $name=$_POST['s_name'];
    }
    //////////////////////////////////////// 
       // if(empty($_POST['services'])) {
@@ -26,21 +26,28 @@ if(isset($_POST['submit'])){
       //    $price = implode(", ",$price); 
       //   }
    ///////////////////////////////////////
-     foreach($services = ($_POST['services']) as $ss){
+   if(empty($_POST['services'])) {
+      echo "<script> alert(Please fill all field) </script>";
+     }else{
+      foreach($services = ($_POST['services']) as $ss){
          $value_s[] = $ss;
          $s = implode(",", $value_s);
       }
+     }
+
+     if(empty($_POST['price'])) {
+      echo "<script> alert(Please fill all field) </script>";
+     }else{
       foreach($price = ($_POST['price']) as $pr){
+         // $sum += $pr;
          $value_p[] = $pr;
-         $p = implode(",", $value_p);
+         $sum = implode(",", $value_p);
       }
+      
+     }
 
-      // echo "<pre>";
-      // print_r($_POST);
-      // echo "</pre>";
-      // die();
 
-   $save = mysqli_query($con,"INSERT INTO `salary` (`name`, `services`, `price`) VALUES ('$name', '$s\n', '$p\n')");
+   $save = mysqli_query($con,"INSERT INTO `salary` (`s_name`, `services`, `price`) VALUES ('$name', '$s\n', '$sum')");
 
      if($save){
          //  echo "<h1>submit success</h1>";

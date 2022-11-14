@@ -39,7 +39,7 @@
   </style>
       <script>
         $(document).ready(function() {         
-        var html = '<tr><td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td><td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td><td><input class="btn btn-danger" type="button" value="-" id="remove" name="remove"></td></tr>';
+        var html = '<tr><td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" required="require"></td><td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"  required="require"></td><td><input class="btn btn-danger" type="button" value="-" id="remove" name="remove"></td></tr>';
             var max = 100000;
             var x = 1;
             $("#add").click(function(){
@@ -119,7 +119,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" id="" placeholder="Enter Employee Name">
+                                <input type="text" name="s_name" class="form-control" id="" placeholder="Enter Employee Name">
                               </div>
                             </div>
                             <table class="table table-bordered" id="table" >
@@ -129,25 +129,26 @@
                                   <th>Add</th>
                               </tr>
                               <tr>
-                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td>
-                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td>
+                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" required="require"></td>
+                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price" required="require"></td>
                                   <td><input class="btn btn-success" type="button" value="+" id="add" name="add"></td>
                               </tr>
                             </table>
-                            <!-- <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Services</label>
-                                <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
+                            <!-- /////////////////////////////// -->
+                              <!-- <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Services</label>
+                                  <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
+                                </div>
                               </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Price</label>
-                                <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
-                                
-                              </div>
-                            </div> -->
-
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Price</label>
+                                  <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
+                                  
+                                </div>
+                              </div> -->
+                            <!-- /////////////////////////////// -->
                           </div>
                         </div>
                         

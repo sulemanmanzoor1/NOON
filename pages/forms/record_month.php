@@ -37,7 +37,8 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Salaries</li>
+              <li class="breadcrumb-item active"><a href="month.php">Add Salary</a></li>
+              <li class="breadcrumb-item active">Salaries</li>  
             </ol>
           </div>
         </div>
@@ -72,29 +73,40 @@
 
                       @include('Backend/connection.php');
 
-                      $query = mysqli_query($con,"SELECT * FROM `salary` "); 
+                      $query = mysqli_query($con,"SELECT * FROM `salary` ");                    
+
                       
                       if(mysqli_num_rows($query) > 0){
-
+                        $sum = 0;
                         while($_data = mysqli_fetch_array($query)){
                           $id            = $_data['id'];
-                          $name          = $_data['name'];
+                          $name          = $_data['s_name'];
                           $services      = $_data['services'];
-                          $price         = $_data['price'];
-
+                          $sum           = array($_data['price']);
+                                                     
                           ?>
                             <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $name?></td>
-                              <td><?php echo $services?></td>
-                              <td><?php echo $price?></td>
+                              <?php
+                              $sum = 0;
+                              foreach (array($sum) as $total) {
+                                $sum += $total['price'];
+
+                              }
+                              // foreach($price = array($_data['price']) as $pr){
+                              //   (int)$sum += (int)$pr;
+                              //   $sum = intval($sum);
+                              // }
+                              ?>
+                              <td><?php echo $id;?></td>
+                              <td><?php echo $name;?></td>
+                              <td><?php echo $services;?></td>
+                              <td><?php echo array_sum($sum);?></td>
                               <td>
-                                <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
-                              
+                                <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>                              
                                 <a href="Backend/delete/salary.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
-                                
                               </td>
                             </tr>
+                            
 
                           <?php
                         }

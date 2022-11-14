@@ -10,10 +10,10 @@
     $name = $services = $price ="";
     if(isset($_POST['update'])){
         $id = $_GET['id'];
-        if(empty($_POST['name'])) {
+        if(empty($_POST['s_name'])) {
             echo "<script> alert(Please fill all field) </script>";
         }else{
-            $name=$_POST['name'];
+            $name=$_POST['s_name'];
         }
 
         foreach ($services = ($_POST['services']) as $ser) {
@@ -36,7 +36,7 @@
         //     $p = implode(",", $value_p);
         //  }
        
-        $edit = mysqli_query($con, "UPDATE `salary` SET `name`='$name',`services`='$ser',`price`='$pr' WHERE id=".$id);
+        $edit = mysqli_query($con, "UPDATE `salary` SET `s_name`='$name',`services`='$ser',`price`='$pr' WHERE id=".$id);
 
         if($edit){
             // echo "Done";
@@ -328,7 +328,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" id="" placeholder="Enter Employee Name" value="<?php echo $edit['name'];?>">
+                                <input type="text" name="s_name" class="form-control" id="" placeholder="Enter Employee Name" value="<?php echo $edit['s_name'];?>">
                               </div>
                             </div>
                             <table class="table table-bordered" id="table" >

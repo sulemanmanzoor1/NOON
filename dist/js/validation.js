@@ -29,6 +29,9 @@ $(document).ready(function(){
       },
 
       // salary
+      s_name:{
+        required:true,
+      },
       services:{
         required:true,
       },
@@ -36,6 +39,7 @@ $(document).ready(function(){
         required:true,
       },
       // salary
+
       //Factory Equipment 
       add_equipment:{
         required:true,
