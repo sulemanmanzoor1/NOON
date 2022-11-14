@@ -6,10 +6,16 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="../../index.php" class="nav-link">Home</a>
-      <!-- </li>
+      </li>
+      <!--
         <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li> -->
+
+       <!-- SidebarSearch Form -->
+       <div class="form-inline" style="padding-left:700px ;">
+        <input id="myInput" type="text" placeholder="Search.." style="padding:10px 15px; border:1px solid grey; border-radius:10px;">
+      </div>
     </ul>
 
     <!-- Right navbar links -->

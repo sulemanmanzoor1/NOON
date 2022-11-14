@@ -6,6 +6,9 @@ $(document).ready(function(){
       date:{
         required: true,
       },
+      to_date:{
+        required: true,
+      },
       name:{
         required: true,
         lettersonly:true

@@ -44,6 +44,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
               <li class="breadcrumb-item active">All Fabric</li>
+              <li class="breadcrumb-item active"><a href="fabric_report.php">Fabric Report</a></li>
             </ol>
           </div>
         </div>
