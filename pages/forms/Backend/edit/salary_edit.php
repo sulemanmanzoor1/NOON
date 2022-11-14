@@ -1,23 +1,73 @@
+<?php
+    include('../connection.php');
+    $id="";
+    $id = $_GET["id"];
+  
+    $select = mysqli_query($con,"SELECT * FROM `salary` WHERE id=".$id);
+    $edit = mysqli_fetch_assoc($select);
+?>
+<?php
+    $name = $services = $price ="";
+    if(isset($_POST['update'])){
+        $id = $_GET['id'];
+        if(empty($_POST['name'])) {
+            echo "<script> alert(Please fill all field) </script>";
+        }else{
+            $name=$_POST['name'];
+        }
+
+        foreach ($services = ($_POST['services']) as $ser) {
+            $value_ser[] = $ser;
+            $ser = implode(",", $value_ser);
+        }
+
+
+        foreach ($price = ($_POST['price']) as $pr) {
+            $value_pr[] = $pr;
+            $pr = implode(",", $value_pr);
+        }
+    
+        // foreach($services = ($_POST['services']) as $ss){
+        //     $value_s[] = $ss;
+        //     $s = implode(",", $value_s);
+        //  }
+        //  foreach($price = ($_POST['price']) as $pr){
+        //     $value_p[] = $pr;
+        //     $p = implode(",", $value_p);
+        //  }
+       
+        $edit = mysqli_query($con, "UPDATE `salary` SET `name`='$name',`services`='$ser',`price`='$pr' WHERE id=".$id);
+
+        if($edit){
+            // echo "Done";
+            header("location:../../record_month.php");
+        }else{
+            echo "Query Failed";
+        }
+
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salary</title>
+  <title>Salaries</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../../../dist/css/adminlte.min.css">
   <!-- Jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <!-- Jquery validation plug in  -->
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-  <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
-  <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
-  <script src="../../dist/js/validation.js"></script>
+  <script src="../../../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
+  <script src="../../../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
+  <script src="../../../../dist/js/validation.js"></script>
   <style>
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -37,41 +87,18 @@
       font-weight: normal;
     }
   </style>
-      <script>
-        $(document).ready(function() {         
-        var html = '<tr><td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td><td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td><td><input class="btn btn-danger" type="button" value="-" id="remove" name="remove"></td></tr>';
-            var max = 100000;
-            var x = 1;
-            $("#add").click(function(){
-            //    alert("Its working");
-                if( x<=max ){
-                    $("#table").append(html);
-                    x++;
-                }
-            }); 
-
-            $("#table").on('click', '#remove',function(){
-            //  alert("Its working");
-                $(this).closest('tr').remove();
-                x--;
-
-            }); 
-
-
-        });
-    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
     <?php
-      @include('../../Components/header.php')
+      @include('../../../../Components/header.php')
     ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
     <?php
-      @include('../../Components/sidebar.php');
+      @include('../../../../Components/sidebar.php');
     ?>
 
 
@@ -111,7 +138,8 @@
                 </div>
                 <!-- /.card-header -->
                   <!-- form start -->
-                  <form id="frm" action="Backend/Send/salary_month.php" method="POST">
+                  <form id="frm" action="" method="POST">
+                  <input type="hidden" value="<?php echo $edit['id'];?>">
                     <div class="row">
                       <div class="card-body">
                         <div class="col-md-12">
@@ -119,19 +147,17 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" id="" placeholder="Enter Employee Name">
+                                <input type="text" name="name" class="form-control" id="" placeholder="Enter Employee Name" value="<?php echo $edit['name'];?>">
                               </div>
                             </div>
                             <table class="table table-bordered" id="table" >
                               <tr>
                                   <th>Services</th>
                                   <th>Price</th>
-                                  <th>Add</th>
                               </tr>
                               <tr>
-                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service"></td>
-                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"></td>
-                                  <td><input class="btn btn-success" type="button" value="+" id="add" name="add"></td>
+                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" value="<?php echo $edit['services'];?>"></td>
+                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price" value="<?php echo $edit['price'];?>"></td>
                               </tr>
                             </table>
                             <!-- <div class="col-md-6">
@@ -144,7 +170,6 @@
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Price</label>
                                 <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
-                                
                               </div>
                             </div> -->
 
@@ -155,7 +180,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="update" class="btn btn-primary">Submit</button>
                     </div>
                   </form>
               </div>
@@ -196,16 +221,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="../../../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {

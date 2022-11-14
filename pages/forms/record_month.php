@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Fabric Record</title>
+  <title>Record Salaries</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,12 +32,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Salaries </h1>
+            <h1>Salaries</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Salary</li>
+              <li class="breadcrumb-item active">Salaries</li>
             </ol>
           </div>
         </div>
@@ -62,37 +62,47 @@
                     <tr>
                         <th>ID #</th>
                         <th>Name</th>
-                        <th>Date (D/M/Y)</th>
-                        <th>Services</th>
+                        <th>Services</th>            
                         <th>Price</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>jack</td>
-                        <td>03/12/14</td>
-                        <td>kolar</td>
-                        <td>20</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>03/12/14</td>
-                        <td>arms</td>
-                        <td>22</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Bili</td>
-                        <td>03/12/14</td>
-                        <td>front and back</td>
-                        <td>18</td>
-                        <td>Edit/Delete</td>
-                    </tr>
+                    <?php
+
+                      @include('Backend/connection.php');
+
+                      $query = mysqli_query($con,"SELECT * FROM `salary` "); 
+                      
+                      if(mysqli_num_rows($query) > 0){
+
+                        while($_data = mysqli_fetch_array($query)){
+                          $id            = $_data['id'];
+                          $name          = $_data['name'];
+                          $services      = $_data['services'];
+                          $price         = $_data['price'];
+
+                          ?>
+                            <tr>
+                              <td><?php echo $id?></td>
+                              <td><?php echo $name?></td>
+                              <td><?php echo $services?></td>
+                              <td><?php echo $price?></td>
+                              <td>
+                                <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
+                              
+                                <a href="Backend/delete/salary.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                
+                              </td>
+                            </tr>
+
+                          <?php
+                        }
+                      }
+
+                    ?>
+                   
+                   
                     </tbody>
                 </table>
             </div>

@@ -16,7 +16,7 @@ $(document).ready(function(){
       },
       fabric:{
         required: true,
-        Numbersonly:true,
+        Numbersonly:true
       },
       cut_fab:{
         required: true,
@@ -24,6 +24,32 @@ $(document).ready(function(){
       sti_fab:{
         required: true,
       },
+
+      // salary
+      services:{
+        required:true,
+      },
+      price:{
+        required:true,
+      },
+      // salary
+      //Factory Equipment 
+      add_equipment:{
+        required:true,
+        lettersonly:true
+      },
+      quantity:{
+        required:true,
+        Numbersonly:true
+      },
+      purchase:{
+        required:true,
+        Numbersonly:true
+      },
+      add_status:{
+        required:true,
+      },
+      //Factory Equipment
 
       lat:{
         required: true,
@@ -77,12 +103,15 @@ $(document).ready(function(){
       outcome_text:{
         required:true,
         lettersonly:true
-      }
-
+      },
 
     },
     messages:{
       
+      add_status:{
+        forselect:"Select Status",
+      },
+
       country_name:{
         forselect:"Select Country Name",
       },

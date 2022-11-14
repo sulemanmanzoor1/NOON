@@ -1,5 +1,6 @@
 <?php
   @include('../connection.php');   
+  
   $id="";
   $id = $_GET["id"];
 
@@ -145,7 +146,7 @@ if(isset($_POST['update'])){
                       <div class="col-12">
                         <div class="row">
                           <div class="col-md-6">
-                          <input type="hidden" value="<?php echo $row['id']?>">
+                          <input type="hidden"value="<?php echo $row['id']?>">
                             <div class="form-group ">
                               <label for="exampleInputEmail1">Select Date</label>
                              

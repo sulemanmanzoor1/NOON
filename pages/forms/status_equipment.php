@@ -62,41 +62,53 @@
                     <tr>
                         <th>ID #</th>
                         <th>Equipment Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Date (D/M/Y)</th>
+                        <th>Quantity</th>            
+                        <th>Purchase Price</th>
+                        <th>Status</th>                        
+                        <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>aa</td>
-                        <td>10</td>
-                        <td>200</td>
-                        <td>OLD</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>bb</td>
-                        <td>30</td>
-                        <td>400</td>
-                        <td>NEW</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>cc</td>
-                        <td>60</td>
-                        <td>700</td>
-                        <td>--</td>
-                        <td>03/12/14</td>
-                        <td>Edit/Delete</td>
-                    </tr>
+                    <?php
+
+                      @include('Backend/connection.php');
+
+                      $query = mysqli_query($con,"SELECT * FROM `equipment` "); 
+                      
+                      if(mysqli_num_rows($query) > 0){
+
+                        while($_data = mysqli_fetch_array($query)){
+                          $id            = $_data['id'];
+                          $add_equipment = $_data['add_equipment'];
+                          $quantity      = $_data['quantity'];
+                          $purchase      = $_data['purchase'];
+                          $add_status    = $_data['add_status'];
+                          $date          = $_data['date'];
+
+                          ?>
+                            <tr>
+                              <td><?php echo $id?></td>
+                              <td><?php echo $add_equipment?></td>
+                              <td><?php echo $quantity?></td>
+                              <td><?php echo $purchase?></td>
+                              <td><?php echo $add_status?></td>
+                              <td><?php echo $date?></td>
+                              <td>
+                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
+                              
+                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                
+                              </td>
+                            </tr>
+
+                          <?php
+                        }
+                      }
+
+                    ?>
+                   
+                   
                     </tbody>
                 </table>
             </div>
