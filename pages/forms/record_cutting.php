@@ -57,7 +57,7 @@ $(document).ready(function(){
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
               <li class="breadcrumb-item active">All cutting</li>
-              <li class="breadcrumb-item active"><a href="">cutting Report</a></li>
+              <li class="breadcrumb-item active"><a href="cutting_report.php">cutting Report</a></li>
             </ol>
           </div>
         </div>

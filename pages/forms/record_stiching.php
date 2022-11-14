@@ -57,7 +57,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
               <li class="breadcrumb-item active">All stitching</li>
-              <li class="breadcrumb-item active"><a href="">Stitching Report</a></li>
+              <li class="breadcrumb-item active"><a href="stiching_report.php">Stitching Report</a></li>
             </ol>
           </div>
         </div>
