@@ -1,10 +1,15 @@
+<?php
+@include('Backend/connection.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cutting Fabric</title>
+  <title>NOON Group</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -12,26 +17,27 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <!-- Jquery validation plug in  -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
   <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
   <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
   <script src="../../dist/js/validation.js"></script>
+  <!-- search -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
   <style>
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance: textfield;
-    }
-
     .error {
       color: red;
       font-size: 14px;
@@ -60,12 +66,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Cutting Fabric Details </h1>
+              <h1>All Salaries </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Cutting Fabric </li>
+                <li class="breadcrumb-item active">Salary Report</li>
+                <li class="breadcrumb-item"><a href="../forms/month.php">Add Salary</a></li>
+                
               </ol>
             </div>
           </div>
@@ -81,72 +88,48 @@
               <!-- jquery validation -->
               <div class="card card-primary">
                 <div class="card-header">
-
+                  <h3 class="card-title"> <small></small></h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="frm" action="Backend/Send/cutting.php" method="POST">
+
+
+                <form id="frm" action="report/salary.php" method="POST">
                   <div class="row">
                     <div class="card-body">
-
-                      <div class="col-md-12">
+                      <div class="col-12">
                         <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Select Date</label>
+                          <div class="col-md-12">
+                            <div class="form-group ">
+                              <label for="exampleInputEmail1">From Date (M/D/Y)</label>
                               <input type="Date" name="date" class="form-control" id="exampleInputEmail1">
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Total Fabric</label>
-                              <!-- <input type="number" name="fabric" class="form-control" id="fabric" placeholder="Enter Fabric in kg"> -->
-                              <select name="fabric" id="" class="form-control">
-                                    <option value="">Total Fabric</option>
-                                <?php
-                                  include('../forms/Backend/connection.php');
-                                  $id = $fabric = "";
-                                  
-                                    $query = mysqli_query($con, "SELECT * FROM `fabric` ");
-                                
-                                    if(mysqli_num_rows($query) > 0){
-                                        while($data = mysqli_fetch_assoc($query)){
-
-                                            // $id        = $data['id'];
-                                            $fabric = $data['fabric'];
-                                        ?>
-                                          <option value="<?php echo $fabric; ?>"><?php echo $fabric; ?></option>
-                                            
-                                        <?php
-                                        }
-                                    }
-                                ?> 
-                              </select>
-                            
-                            </div>
-                          </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Cutting Fabric</label>
-                              <input type="number" name="cut_fab" class="form-control " id="cut_fab" placeholder="Enter Cutting Fabric in kg">
+                          <div class="col-md-12">
+                            <div class="form-group ">
+                              <label for="exampleInputEmail1">From Date (M/D/Y)</label>
+                              <input type="Date" name="to_date" class="form-control" id="to_date">
                             </div>
                           </div>
                         </div>
                       </div>
-
-
                     </div>
                   </div>
                   <!-- /.card-body -->
-                  <div class="card-footer">
+                  <div class="ml-4 mb-2">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
+
               </div>
               <!-- /.card -->
             </div>
             <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
 
+            </div>
+            <!--/.col (right) -->
           </div>
           <!-- /.row -->
         </div><!-- /.container-fluid -->

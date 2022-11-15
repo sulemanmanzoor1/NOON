@@ -1,16 +1,17 @@
 <?php
   @include('../connection.php');   
-  
   $id="";
   $id = $_GET["id"];
 
-  $select = mysqli_query($con,"SELECT * FROM `equipment` WHERE id=".$id);
-  $edit = mysqli_fetch_assoc($select);
+  $select = mysqli_query($con,"SELECT * FROM `pack_feb` WHERE id=".$id);
+  $row = mysqli_fetch_assoc($select);
 
 ?>
 
 <?php
-$date=$id=$add_equipment=$quantity=$purchase=$add_status="";
+
+
+$date = $id = $sti_feb = $pack_feb= "";
 
 if(isset($_POST['update'])){
     $id = $_GET['id'];
@@ -20,34 +21,25 @@ if(isset($_POST['update'])){
     $date=$_POST['date'];
    }
 
-   if(empty($_POST['add_equipment'])) {
-    echo "<script> alert(Pleade fill all field) </script>";
-   }else{
-    $add_equipment=$_POST['add_equipment'];  
-   }
-    
-   if(empty($_POST['quantity'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
-     }else{
-      $quantity=$_POST['quantity'];  
-     }
+    if(empty($_POST['sti_feb'])) {
+    echo "<script> alert(Please fill all field) </script>";
+    }else{
+    $sti_feb=$_POST['sti_feb'];  
+    }
 
-     if(empty($_POST['purchase'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
-     }else{
-      $purchase=$_POST['purchase'];  
-     }
+    if(empty($_POST['pack_feb'])) {
+      echo "<script> alert(Please fill all field) </script>";
+      }else{
+      $pack_feb=$_POST['pack_feb'];  
+      }
 
-     if(empty($_POST['add_status'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
-     }else{
-      $add_status=$_POST['add_status'];  
-     }
 
-   $query = mysqli_query($con,"UPDATE `equipment` SET `add_equipment`='$add_equipment',`quantity`='$quantity',`purchase`='$purchase',`add_status`='$add_status',`date`='$date' WHERE id=".$id);
+    $remain_feb =$sti_feb-$pack_feb;
+
+   $query = mysqli_query($con,"UPDATE `pack_feb` SET `date`='$date',`sti_feb`='$sti_feb',`pack_feb`='$pack_feb',`remain_feb`='$remain_feb KG' WHERE id=".$id);
    if($query){
-      // echo "Correct query";
-    header("location:../../status_equipment.php");
+      
+    header("location:../../record_packing.php");
         
    }else{
     echo "wrong query";
@@ -58,12 +50,15 @@ if(isset($_POST['update'])){
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Equipment</title>
+  <title>Noon Management</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -98,40 +93,58 @@ if(isset($_POST['update'])){
     }
   </style>
 </head>
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-
-  
-  <!-- Navbar -->
+  <div class="wrapper">
+    <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="index.php" role="button"><i class="fas fa-bars"></i></a>
-        </li>
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="index.php" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../../../../index.php" class="nav-link">Home</a>
+      </li>
+      <!--
         <li class="nav-item d-none d-sm-inline-block">
-          <!-- <a href="   index.php" class="nav-link">Home</a> -->
-      </ul>
+        <a href="#" class="nav-link">Contact</a>
+      </li> -->
 
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">   
-      </ul>
+       <!-- SidebarSearch Form -->
+       <div class="form-inline" style="padding-left:700px ;">
+        <input id="myInput" type="text" placeholder="Search.." style="padding:10px 15px; border:1px solid grey; border-radius:10px;">
+      </div>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+    <!-- Navbar Search -->
+      
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li> -->
+    <!-- Navbar Search -->
+
+    </ul>
   </nav>
-  <!-- /.navbar -->
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
+    <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../record_fabric.php" class="brand-link">
       <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE </span>
     </a>
-
+<br>
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
 
-<br>
+
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -190,6 +203,13 @@ if(isset($_POST['update'])){
                   <p>Stitching Fabric</p>
                 </a>
               </li>
+              
+              <li class="nav-item">
+                <a href="../../packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Fabric</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -220,6 +240,12 @@ if(isset($_POST['update'])){
                 <a href="../../record_stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Record</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../record_packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Record</p>
                 </a>
               </li>
             </ul>
@@ -286,6 +312,9 @@ if(isset($_POST['update'])){
             </ul>
           </li>
 
+          
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -293,174 +322,116 @@ if(isset($_POST['update'])){
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Add Equipment <small style="font-size: 11px;">Edit</small></h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Add Equipment </li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                
-              </div>
-              <!-- /.card-header -->
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Edit Packing </h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="../../../../index.php">Home</a></li>
+                <li class="breadcrumb-item active">Edit Packing </li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+
+                </div>
+                <!-- /.card-header -->
                 <!-- form start -->
                 <form id="frm" action="" method="POST">
-                <input type="hidden" value="<?php echo $edit['id'];?>">
                   <div class="row">
                     <div class="card-body">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-6">
+                          <input type="hidden" value="<?php echo $row['id'];?>">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Select Date</label>
-                              <input type="Date" name="date" class="form-control" id="exampleInputEmail1" value="<?php echo $edit['date'];?>">
+                              <input type="Date" name="date" value="<?php echo $row['date'];?>" class="form-control" id="exampleInputEmail1">
                             </div>
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Add Equipment</label>
-                              <input type="text" name="add_equipment" class="form-control" id="add_equipment" value="<?php echo $edit['add_equipment']; ?>" placeholder="Enter Equipment Name">
+                              <label for="exampleInputEmail1" class="">Stitching Febric</label>
+                              <input type="text" name="sti_feb" id="sti_feb" value="<?php echo $row['sti_feb'];?>" class="form-control" placeholder=" Enter Packing Fabric in kg">
                             </div>
                           </div>
-                          <div class="col-md-6 ">
+                          <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Quantity </label>
-                              <input type="number" name="quantity" class="form-control" id="quantity" value="<?php echo $edit['quantity']; ?>" placeholder="Enter Quantity ">
+                              <label for="exampleInputEmail1" class="mt-3">Packing Fabric</label>
+                              <input type="text" name="pack_feb" class="form-control" value="<?php echo $row['pack_feb'];?>" id="pack_feb" placeholder="Enter Packing Fabric in kg" >
                             </div>
                           </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Purchase Price</label>
-                              <input type="number" name="purchase" class="form-control " id="purchase" value="<?php echo $edit['purchase']; ?>" placeholder="Enter Purchase Price">
-                            </div>
-                          </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Status </label>
-                              <select name="add_status" id="add_status" class="form-control" value="<?php echo $edit['add_status']; ?>">
-                                <option value=""> -- Status Equipment</option>
-                                <option value="new">New</option>
-                                <option value="old">Old</option>
-                              </select>
-                            </div>
-                          </div>
-
                         </div>
+                        
+                        
                       </div>
-                      
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" name="update" class="btn btn-primary">Update</button>
+                    <button type="submit" name="update" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
+              </div>
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
 
+            </div>
+            <!--/.col (right) -->
           </div>
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <?php
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <?php
       @include('../../../../Components/footer.php');
     ?>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="../../../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jquery-validation -->
-<script src="../../../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../../../plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../../../dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
-</script>
+  <!-- jQuery -->
+  <script src="../../../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+  <!-- AdminLTE App -->
+  <script src="../../../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../../../dist/js/demo.js"></script>
+  <!-- Page specific script -->
+  
 </body>
+
 </html>

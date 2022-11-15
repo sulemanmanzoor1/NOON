@@ -1,9 +1,12 @@
+<?php
+include('Backend/Send/salary_monthly.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salary - Contract</title>
+  <title>Salary - Monthly</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -37,29 +40,6 @@
       font-weight: normal;
     }
   </style>
-      <script>
-        $(document).ready(function() {         
-        var html = '<tr><td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" required="require"></td><td><input class="form-control" type="text" name="price[]" placeholder="Enter Price"  required="require"></td><td><input class="btn btn-danger" type="button" value="-" id="remove" name="remove"></td></tr>';
-            var max = 100000;
-            var x = 1;
-            $("#add").click(function(){
-            //    alert("Its working");
-                if( x<=max ){
-                    $("#table").append(html);
-                    x++;
-                }
-            }); 
-
-            $("#table").on('click', '#remove',function(){
-            //  alert("Its working");
-                $(this).closest('tr').remove();
-                x--;
-
-            }); 
-
-
-        });
-    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -83,7 +63,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Contract Salary </h1>
+            <h1 class="m-0">Monthly Salary </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -111,44 +91,35 @@
                 </div>
                 <!-- /.card-header -->
                   <!-- form start -->
-                  <form id="frm" action="Backend/Send/salary_month.php" method="POST">
+                  <form id="frm" action="Backend/Send/salary_monthly.php" method="POST">
                     <div class="row">
                       <div class="card-body">
                         <div class="col-md-12">
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="s_name" class="form-control" id="" placeholder="Enter Employee Name">
+                                <label for="exampleInputEmail1">Name</label><span class="error"> <?php echo "&nbsp&nbsp;".$emp_nameErr ;?></span>
+                                <input type="text" name="emp_name" class="form-control" id="" placeholder="Enter Employee Name">
                               </div>
                             </div>
-                            <table class="table table-bordered" id="table" >
-                              <tr>
-                                  <th>Services</th>
-                                  <th>Price</th>
-                                  <th>Add</th>
-                              </tr>
-                              <tr>
-                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" required="require"></td>
-                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price" required="require"></td>
-                                  <td><input class="btn btn-success" type="button" value="+" id="add" name="add"></td>
-                              </tr>
-                            </table>
-                            <!-- /////////////////////////////// -->
-                              <!-- <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Services</label>
-                                  <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
-                                </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Employee Desigination</label>
+                                <input type="text" name="emp_desig" class="form-control" id="" placeholder="Enter Employee Desigination">
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Price</label>
-                                  <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
-                                  
-                                </div>
-                              </div> -->
-                            <!-- /////////////////////////////// -->
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Pay</label>
+                                <input type="number" name="emp_pay" class="form-control" id="" placeholder="Enter Pay">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Date</label>
+                                <input type="date" name="date" class="form-control" id="">
+                              </div>
+                            </div>
                           </div>
                         </div>
                         

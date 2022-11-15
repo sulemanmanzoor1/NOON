@@ -1,61 +1,52 @@
 <?php
-  @include('../connection.php');   
+    include('../connection.php');
+    $id="";
+    $id = $_GET["id"];
   
-  $id="";
-  $id = $_GET["id"];
-
-  $select = mysqli_query($con,"SELECT * FROM `equipment` WHERE id=".$id);
-  $edit = mysqli_fetch_assoc($select);
-
+    $select = mysqli_query($con,"SELECT * FROM `monthly` WHERE id=".$id);
+    $edit = mysqli_fetch_assoc($select);
 ?>
-
 <?php
-$date=$id=$add_equipment=$quantity=$purchase=$add_status="";
-
-if(isset($_POST['update'])){
-    $id = $_GET['id'];
-   if(empty($_POST['date'])) {
-    echo "<script> alert(Pleade fill all field) </script>";
-   }else{
-    $date=$_POST['date'];
-   }
-
-   if(empty($_POST['add_equipment'])) {
-    echo "<script> alert(Pleade fill all field) </script>";
-   }else{
-    $add_equipment=$_POST['add_equipment'];  
-   }
-    
-   if(empty($_POST['quantity'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
+    $emp_name = $emp_desig = $emp_pay = $date ="";
+    if(isset($_POST['update'])){
+  
+      if(empty($_POST['emp_name'])) {
+        echo "<script> alert(Please fill all field) </script>";
      }else{
-      $quantity=$_POST['quantity'];  
+      if (preg_match("/^[A-Za-z- ']*$/",$emp_name)) 
+      {
+        $emp_name=$_POST['emp_name'];
+      }
      }
-
-     if(empty($_POST['purchase'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
+  
+     if(empty($_POST['emp_desig'])) {
+        echo "<script> alert(Please fill all field) </script>";
      }else{
-      $purchase=$_POST['purchase'];  
+        $emp_desig=$_POST['emp_desig'];
      }
-
-     if(empty($_POST['add_status'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
+     
+     if(empty($_POST['emp_pay'])) {
+        echo "<script> alert(Please fill all field) </script>";
      }else{
-      $add_status=$_POST['add_status'];  
+        $emp_pay=$_POST['emp_pay'];
      }
+     
+     if(empty($_POST['date'])) {
+        echo "<script> alert(Please fill all field) </script>";
+     }else{
+        $date=$_POST['date'];
+     }
+     
+        $edit = mysqli_query($con, "UPDATE `monthly` SET `emp_name`='$emp_name',`emp_desig`='$emp_desig',`emp_pay`='$emp_pay',`date`='$date' WHERE id=".$id);
 
-   $query = mysqli_query($con,"UPDATE `equipment` SET `add_equipment`='$add_equipment',`quantity`='$quantity',`purchase`='$purchase',`add_status`='$add_status',`date`='$date' WHERE id=".$id);
-   if($query){
-      // echo "Correct query";
-    header("location:../../status_equipment.php");
-        
-   }else{
-    echo "wrong query";
+        if($edit){
+            // echo "Done";
+            header("location:../../record_monthly.php");
+        }else{
+            echo "Query Failed";
+        }
 
-   }
-}
-
-
+    }
 
 ?>
 <!DOCTYPE html>
@@ -63,7 +54,7 @@ if(isset($_POST['update'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Equipment</title>
+  <title>Salaries</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -100,7 +91,6 @@ if(isset($_POST['update'])){
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
   
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -126,12 +116,12 @@ if(isset($_POST['update'])){
       <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE </span>
     </a>
-
+<br>
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
 
-<br>
+
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -237,6 +227,14 @@ if(isset($_POST['update'])){
               <li class="nav-item">
                 <a href="../../month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
+                  <p>Contract</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../monthly.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
               </li>
@@ -254,6 +252,14 @@ if(isset($_POST['update'])){
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../../record_month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contract</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../record_monthly.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
@@ -293,105 +299,105 @@ if(isset($_POST['update'])){
     <!-- /.sidebar -->
   </aside>
 
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Equipment <small style="font-size: 11px;">Edit</small></h1>
-          </div>
+            <h1 class="m-0">Salary <small style="font-size:11px;">Edit</small></h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Add Equipment </li>
+              <li class="breadcrumb-item active">Salary</li>
             </ol>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
       <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                
-              </div>
-              <!-- /.card-header -->
-                <!-- form start -->
-                <form id="frm" action="" method="POST">
-                <input type="hidden" value="<?php echo $edit['id'];?>">
-                  <div class="row">
-                    <div class="card-body">
-                      <div class="col-md-12">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Select Date</label>
-                              <input type="Date" name="date" class="form-control" id="exampleInputEmail1" value="<?php echo $edit['date'];?>">
+        <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  
+                </div>
+                <!-- /.card-header -->
+                  <!-- form start -->
+                  <form id="frm" action="" method="POST">
+                    <div class="row">
+                      <div class="card-body">
+                        <div class="col-md-12">
+                          <div class="row">
+                          <input type="hidden" value="<?php echo $edit['id'];?>">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" name="emp_name" class="form-control" id="" value="<?php echo $edit['emp_name'];?>" placeholder="Enter Employee Name">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Employee Desigination</label>
+                                <input type="text" name="emp_desig" class="form-control" id="" value="<?php echo $edit['emp_desig'];?>" placeholder="Enter Employee Desigination">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Pay</label>
+                                <input type="number" name="emp_pay" class="form-control" id="" value="<?php echo $edit['emp_pay'];?>" placeholder="Enter Pay">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Date</label>
+                                <input type="date" name="date" class="form-control" id="" value="<?php echo $edit['date'];?>">
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Add Equipment</label>
-                              <input type="text" name="add_equipment" class="form-control" id="add_equipment" value="<?php echo $edit['add_equipment']; ?>" placeholder="Enter Equipment Name">
-                            </div>
-                          </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Quantity </label>
-                              <input type="number" name="quantity" class="form-control" id="quantity" value="<?php echo $edit['quantity']; ?>" placeholder="Enter Quantity ">
-                            </div>
-                          </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Purchase Price</label>
-                              <input type="number" name="purchase" class="form-control " id="purchase" value="<?php echo $edit['purchase']; ?>" placeholder="Enter Purchase Price">
-                            </div>
-                          </div>
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Status </label>
-                              <select name="add_status" id="add_status" class="form-control" value="<?php echo $edit['add_status']; ?>">
-                                <option value=""> -- Status Equipment</option>
-                                <option value="new">New</option>
-                                <option value="old">Old</option>
-                              </select>
-                            </div>
-                          </div>
-
                         </div>
+                        
                       </div>
-                      
                     </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <button type="submit" name="update" class="btn btn-primary">Update</button>
-                  </div>
-                </form>
-            </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit" name="update" class="btn btn-primary">Update</button>
+                    </div>
+                  </form>
+              </div>
+              <!-- /.card -->
+              </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
 
+            </div>
+            <!--/.col (right) -->
           </div>
-          <!--/.col (right) -->
-        </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+        </section>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+      <!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
   <?php
       @include('../../../../Components/footer.php');
     ?>

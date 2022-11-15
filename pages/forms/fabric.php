@@ -64,7 +64,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+                <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
                 <li class="breadcrumb-item active">Add Fabric </li>
               </ol>
             </div>
@@ -141,12 +141,9 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    <?php
+      @include('../../Components/footer.php');
+    ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

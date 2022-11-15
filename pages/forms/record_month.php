@@ -1,9 +1,14 @@
+<?php
+  @include('Backend/connection.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Record Salaries</title>
+  <title>All Fabric Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,6 +16,19 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- search -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -32,13 +50,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Salaries</h1>
+            <h1>Contract Salaries</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active"><a href="month.php">Add Salary</a></li>
-              <li class="breadcrumb-item active">Salaries</li>  
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+              <li class="breadcrumb-item active">All Contract Salary</li>
+              <li class="breadcrumb-item active"><a href="month.php">Add Salary</a></li>  
+              <li class="breadcrumb-item active"><a href="salary_report.php">Salary Report</a></li>  
             </ol>
           </div>
         </div>
@@ -68,11 +87,8 @@
                         <th>Operations</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                     <?php
-
-                      @include('Backend/connection.php');
-
                       $query = mysqli_query($con,"SELECT * FROM `salary` ");                    
 
                       
@@ -82,28 +98,19 @@
                           $id            = $_data['id'];
                           $name          = $_data['s_name'];
                           $services      = $_data['services'];
-                          $sum           = array($_data['price']);
+                          $sum           = $_data['price'];
                                                      
                           ?>
                             <tr>
                               <?php
-                              $sum = 0;
-                              foreach (array($sum) as $total) {
-                                $sum += $total['price'];
-
-                              }
-                              // foreach($price = array($_data['price']) as $pr){
-                              //   (int)$sum += (int)$pr;
-                              //   $sum = intval($sum);
-                              // }
                               ?>
                               <td><?php echo $id;?></td>
                               <td><?php echo $name;?></td>
                               <td><?php echo $services;?></td>
-                              <td><?php echo array_sum($sum);?></td>
+                              <td><?php echo $sum;?></td>
                               <td>
-                                <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>                              
-                                <a href="Backend/delete/salary.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>                              
+                                <a href="Backend/delete/salary.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                               </td>
                             </tr>
                             
@@ -133,12 +140,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <?php
+      @include('../../Components/footer.php');
+    ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

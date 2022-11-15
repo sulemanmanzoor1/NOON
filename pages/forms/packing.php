@@ -1,10 +1,14 @@
+<?php 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cutting Fabric</title>
+  <title>Packing Fabric</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -60,12 +64,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Cutting Fabric Details </h1>
+              <h1>Packing Fabric Details </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Cutting Fabric </li>
+                <li class="breadcrumb-item active">Packing Fabric </li>
               </ol>
             </div>
           </div>
@@ -81,14 +85,13 @@
               <!-- jquery validation -->
               <div class="card card-primary">
                 <div class="card-header">
-
+          
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="frm" action="Backend/Send/cutting.php" method="POST">
+                <form id="frm" action="Backend/Send/packing.php" method="POST">
                   <div class="row">
                     <div class="card-body">
-
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-6">
@@ -97,44 +100,44 @@
                               <input type="Date" name="date" class="form-control" id="exampleInputEmail1">
                             </div>
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Total Fabric</label>
-                              <!-- <input type="number" name="fabric" class="form-control" id="fabric" placeholder="Enter Fabric in kg"> -->
-                              <select name="fabric" id="" class="form-control">
-                                    <option value="">Total Fabric</option>
+                              <label for="exampleInputEmail1" class="">Stitching Febric</label>
+                              <!-- <input type="number" name="sti_feb" class="form-control " value="<?php echo $row['sti_fab'];?>" id="sti_feb" placeholder="Enter Stiching Fabric in kg"> -->
+
+                              <select name="sti_feb" id="" class="form-control">
+                                    <option value="">Stitching Fabric</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
-                                  $id = $fabric = "";
+                                  $id = $sti_feb = "";
                                   
-                                    $query = mysqli_query($con, "SELECT * FROM `fabric` ");
+                                    $query = mysqli_query($con, "SELECT * FROM `stitch_feb` ");
                                 
                                     if(mysqli_num_rows($query) > 0){
                                         while($data = mysqli_fetch_assoc($query)){
 
                                             // $id        = $data['id'];
-                                            $fabric = $data['fabric'];
+                                            $sti_fab = $data['sti_fab'];
                                         ?>
-                                          <option value="<?php echo $fabric; ?>"><?php echo $fabric; ?></option>
+                                            <option value="<?php echo $sti_fab; ?>"><?php echo $sti_fab; ?></option>
                                             
                                         <?php
                                         }
                                     }
                                 ?> 
                               </select>
-                            
+
+
                             </div>
                           </div>
-                          <div class="col-md-6 ">
+                          <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Cutting Fabric</label>
-                              <input type="number" name="cut_fab" class="form-control " id="cut_fab" placeholder="Enter Cutting Fabric in kg">
+                              <label for="exampleInputEmail1" class="mt-3">Packing Fabric</label>
+                              <input type="number" name="pack_feb" class="form-control" id="cut_feb" placeholder="Enter Packing Fabric in kg">
                             </div>
                           </div>
                         </div>
                       </div>
-
-
                     </div>
                   </div>
                   <!-- /.card-body -->
@@ -178,52 +181,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
   <!-- Page specific script -->
-  <script>
-    $(function() {
-      $.validator.setDefaults({
-        submitHandler: function() {
-          alert("Form successful submitted!");
-        }
-      });
-      $('#quickForm').validate({
-        rules: {
-          email: {
-            required: true,
-            email: true,
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          terms: {
-            required: true
-          },
-        },
-        messages: {
-          email: {
-            required: "Please enter a email address",
-            email: "Please enter a valid email address"
-          },
-          password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
-          },
-          terms: "Please accept our terms"
-        },
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-          error.addClass('invalid-feedback');
-          element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-          $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-          $(element).removeClass('is-invalid');
-        }
-      });
-    });
-  </script>
+
 </body>
 
 </html>

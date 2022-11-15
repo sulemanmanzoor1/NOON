@@ -50,13 +50,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Fabric </h1>
+            <h1>Monthly Salaries</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">All Fabric</li>
-              <li class="breadcrumb-item active"><a href="fabric.php">Add Fabric</a></li>
-              <li class="breadcrumb-item active"><a href="fabric_report.php">Fabric Report</a></li>
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+              <li class="breadcrumb-item active">All Monthly Salary</li>
+              <li class="breadcrumb-item active"><a href="monthly.php">Add Monthly Salary</a></li>  
+              <li class="breadcrumb-item active"><a href="salary_monthly_report.php">Monthly Report</a></li>  
             </ol>
           </div>
         </div>
@@ -80,38 +81,42 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Name</th>
-                        <th>Receieved Fabric</th>            
-                        <th>Purpose</th>                        
-                        <th>Date (Y/M/D)</th>
+                        <th>Employee Name</th>
+                        <th>Desigination</th>            
+                        <th>Pay</th>
+                        <th>Date</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
                     <tbody id="myTable">
                     <?php
-                      $select = mysqli_query($con,"SELECT * FROM `fabric` "); 
-                      
-                      if(mysqli_num_rows($select)>0){
-                        while($row = mysqli_fetch_array($select)){
-                          $id = $row['id'];
-                          $date = $row['date'];
-                          $name = $row['name'];
-                          $fabric = $row['fabric'];
-                          $purpose = $row['purpose'];
+                      $query = mysqli_query($con,"SELECT * FROM `monthly` ");                    
 
+                      
+                      if(mysqli_num_rows($query) > 0){
+                        $sum = 0;
+                        while($_data = mysqli_fetch_array($query)){
+                          $id            = $_data['id'];
+                          $emp_name          = $_data['emp_name'];
+                          $emp_desig          = $_data['emp_desig'];
+                          $emp_pay          = $_data['emp_pay'];
+                          $date          = $_data['date'];
+                                                     
                           ?>
                             <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $name?></td>
-                              <td><?php echo $fabric. " KG";?></td>
-                              <td><?php echo $purpose?></td>
-                              <td><?php echo $date?></td>
+                              <?php
+                              ?>
+                              <td><?php echo $id;?></td>
+                              <td><?php echo $emp_name;?></td>
+                              <td><?php echo $emp_desig;?></td>
+                              <td><?php echo $emp_pay;?></td>
+                              <td><?php echo $date;?></td>
                               <td>
-                                <a href="Backend/edit/fabric_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
-                                <a href="Backend/Del/del_fabric.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
-                                
+                                <a href="Backend/edit/salary_monthly.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>                              
+                                <a href="Backend/delete/salary_monthly.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                               </td>
                             </tr>
+                            
 
                           <?php
                         }

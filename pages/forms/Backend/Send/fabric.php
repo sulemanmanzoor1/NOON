@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
    if(empty($_POST['fabric'])) {
       echo "<script> alert(Pleade fill all field) </script>";
      }else{
-      $fabric=$_POST['fabric']."KG";  
+      $fabric=$_POST['fabric'];  
      }
 
      if(empty($_POST['purpose'])) {

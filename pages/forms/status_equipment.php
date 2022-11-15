@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Status Equipment</title>
+  <title>All Equipment Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,6 +11,19 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- search -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -36,10 +49,10 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Status</li>
-              <!-- <li class="breadcrumb-item active"><a href="  add_equipment.php">Add</a></li> -->
-              <!-- <li class="breadcrumb-item active"><a href="report/equipment.php">Report</a></li> -->
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+              <li class="breadcrumb-item active">Status Equipment</li>
+              <li class="breadcrumb-item active"><a href="add_equipment.php">Add Equipment</a></li>
+              <li class="breadcrumb-item active"><a href="equipment_report.php">Equipment Report</a></li>
             </ol>
           </div>
         </div>
@@ -71,7 +84,7 @@
                         <th>Operations</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                     <?php
 
                       @include('Backend/connection.php');
@@ -97,9 +110,8 @@
                               <td><?php echo $add_status?></td>
                               <td><?php echo $date?></td>
                               <td>
-                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"  style="font-size:24px"></i></a>
-                              
-                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"  style="font-size:24px" ></i></a>
+                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
+                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                                 
                               </td>
                             </tr>
@@ -129,12 +141,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <?php
+      @include('../../Components/footer.php');
+    ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

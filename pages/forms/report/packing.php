@@ -115,6 +115,13 @@ if(isset($_POST['submit'])){
                   <p>Stitching Fabric</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="../packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Fabric</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -145,6 +152,13 @@ if(isset($_POST['submit'])){
                 <a href="../record_stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Record</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../record_packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Record</p>
                 </a>
               </li>
             </ul>
@@ -232,12 +246,12 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 >All Cutting Record </h1>
+            <h1 >All Packing Record </h1>
            
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <button class="btn btn-primary" onclick="window.print()">Print Report</button>
+              <button class="btn btn-primary" onclick="window.print()">Print Report</button>
             </ol>
           </div>
         </div>
@@ -265,9 +279,9 @@ if(isset($_POST['submit'])){
                 
                     <thead>
                     <tr>
-                        <th>ID #</th>
-                        <th>Receieved Fabric</th>            
-                        <th>Cut Fabric</th>                        
+                                
+                        <th>Receieved Stitched Fabric</th>                        
+                        <th>Packed Fabric</th>                        
                         <th>Date (Y/M/D)</th>
 
                        
@@ -275,21 +289,21 @@ if(isset($_POST['submit'])){
                     </thead>
                     <tbody>
                     <?php
-                      $ret=mysqli_query($con,"select * from  cutt_febric where date between '$fdate' and '$tdate' ");
+                      $ret=mysqli_query($con,"select * from  pack_feb where date between '$fdate' and '$tdate' ");
                       $num=mysqli_num_rows($ret);
                       
                       if(mysqli_num_rows($ret)>0){
                         while($row = mysqli_fetch_array($ret)){
-                          $id = $row['id'];
+                         
                           $date = $row['date'];
-                          $fabric = $row['fabric'];
-                          $cut_fab = $row['cut_fab'];
+                          $sti_feb = $row['sti_feb'];
+                          $pack_feb = $row['pack_feb'];
 
                           ?>
                             <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $fabric?></td>
-                              <td><?php echo $cut_fab?></td>
+                                    
+                              <td><?php echo $sti_feb?></td>
+                              <td><?php echo $pack_feb?></td>
                               <td><?php echo $date?></td>
                               
                             </tr>
@@ -332,16 +346,16 @@ if(isset($_POST['submit'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="../../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {

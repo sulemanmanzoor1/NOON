@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Fabric Record</title>
+  <title>All Packing Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,6 +29,7 @@
       });
     });
   </script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -50,13 +51,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Fabric </h1>
+            <h1>All Packing </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">All Fabric</li>
-              <li class="breadcrumb-item active"><a href="fabric.php">Add Fabric</a></li>
-              <li class="breadcrumb-item active"><a href="fabric_report.php">Fabric Report</a></li>
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+              <li class="breadcrumb-item active">All Packing</li>
+              <li class="breadcrumb-item active"><a href="packing.php">Add Packing</a></li>
+              <li class="breadcrumb-item active"><a href="packing_report.php">Packing Report</a></li>
             </ol>
           </div>
         </div>
@@ -80,35 +82,36 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Name</th>
-                        <th>Receieved Fabric</th>            
-                        <th>Purpose</th>                        
+                        <th>Receieved Stich Fabric</th>            
+                        <th>Packing Fabric</th>                        
+                        <th>Remaining Fabric</th>                        
                         <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
-                    <tbody id="myTable">
+                    <tbody  id="myTable">
                     <?php
-                      $select = mysqli_query($con,"SELECT * FROM `fabric` "); 
+                      $select = mysqli_query($con,"SELECT * FROM `pack_feb` "); 
                       
                       if(mysqli_num_rows($select)>0){
                         while($row = mysqli_fetch_array($select)){
                           $id = $row['id'];
                           $date = $row['date'];
-                          $name = $row['name'];
-                          $fabric = $row['fabric'];
-                          $purpose = $row['purpose'];
+                          $pack_fab = $row['pack_feb'];
+                          $sti_fab = $row['sti_feb'];
+                          $remain_fab = $row['remain_feb'];
 
                           ?>
                             <tr>
                               <td><?php echo $id?></td>
-                              <td><?php echo $name?></td>
-                              <td><?php echo $fabric. " KG";?></td>
-                              <td><?php echo $purpose?></td>
+                              <td><?php echo $sti_fab." KG";?></td>
+                              <td><?php echo $pack_fab." KG";?></td>
+                              <td><?php echo $remain_fab?></td>
                               <td><?php echo $date?></td>
                               <td>
-                                <a href="Backend/edit/fabric_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
-                                <a href="Backend/Del/del_fabric.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
+                                <a href="Backend/edit/packing_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
+                              
+                                <a href="Backend/Del/del_packing.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                                 
                               </td>
                             </tr>
@@ -162,51 +165,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
-</script>
+
 </body>
 </html>

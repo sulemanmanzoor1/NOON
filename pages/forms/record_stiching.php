@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NOON Group</title>
+  <title>All Stitching Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -55,8 +55,9 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
               <li class="breadcrumb-item active">All stitching</li>
+              <li class="breadcrumb-item active"><a href="stiching.php">Add Stitching</a></li>
               <li class="breadcrumb-item active"><a href="stiching_report.php">Stitching Report</a></li>
             </ol>
           </div>
@@ -103,8 +104,8 @@
                           ?>
                             <tr>
                               <td><?php echo $id?></td>
-                              <td><?php echo $cut_fab?></td>
-                              <td><?php echo $sti_fab?></td>
+                              <td><?php echo $cut_fab." KG";?></td>
+                              <td><?php echo $sti_fab." KG";?></td>
                               <td><?php echo $remain_fab?></td>
                               <td><?php echo $date?></td>
                               <td>
@@ -140,12 +141,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <?php
+      @include('../../Components/footer.php');
+    ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Cutting Record</title>
+  <title>All Monthly Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -49,7 +49,9 @@ if(isset($_POST['submit'])){
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
-  
+      <img src="../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <!-- <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+      <span class="brand-text font-weight-light">AdminLTE </span>
     </a>
 
     <!-- Sidebar -->
@@ -75,19 +77,19 @@ if(isset($_POST['submit'])){
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="../../index.php" class="nav-link active">
+            <!-- <a href="../../../index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
 
               </p>
-            </a>
+            </a> -->
 
           </li>
 
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="../fabric.php" class="nav-link">
             <i class="nav-icon fas fa-copy" style="font-size:14px;"></i>
               <p>
                 ADD New
@@ -162,7 +164,16 @@ if(isset($_POST['submit'])){
               <li class="nav-item">
                 <a href="../month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Monthy</p>
+                  <p>Contract</p>
+                </a>
+              </li>
+            </ul>
+            
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../monthly.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contract</p>
                 </a>
               </li>
             </ul>
@@ -179,6 +190,14 @@ if(isset($_POST['submit'])){
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../record_month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contract</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../record_monthly.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
@@ -232,7 +251,7 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 >All Cutting Record </h1>
+            <h1 >All Equipment Record </h1>
            
           </div>
           <div class="col-sm-6">
@@ -265,9 +284,10 @@ if(isset($_POST['submit'])){
                 
                     <thead>
                     <tr>
-                        <th>ID #</th>
-                        <th>Receieved Fabric</th>            
-                        <th>Cut Fabric</th>                        
+                        
+                        <th>Employee Name</th>
+                        <th>Desigination</th>            
+                        <th>Pay</th>
                         <th>Date (Y/M/D)</th>
 
                        
@@ -275,21 +295,23 @@ if(isset($_POST['submit'])){
                     </thead>
                     <tbody>
                     <?php
-                      $ret=mysqli_query($con,"select * from  cutt_febric where date between '$fdate' and '$tdate' ");
+                      $ret=mysqli_query($con,"select * from  monthly where date between '$fdate' and '$tdate' ");
                       $num=mysqli_num_rows($ret);
                       
                       if(mysqli_num_rows($ret)>0){
-                        while($row = mysqli_fetch_array($ret)){
-                          $id = $row['id'];
-                          $date = $row['date'];
-                          $fabric = $row['fabric'];
-                          $cut_fab = $row['cut_fab'];
+                        while($_data = mysqli_fetch_array($ret)){
+                          $id            = $_data['id'];
+                          $emp_name = $_data['emp_name'];
+                          $emp_desig = $_data['emp_desig'];
+                          $emp_pay = $_data['emp_pay'];
+                          $date          = $_data['date'];
 
                           ?>
                             <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $fabric?></td>
-                              <td><?php echo $cut_fab?></td>
+                              <!-- <td><?php echo $id?></td> -->
+                              <td><?php echo $emp_name;?></td>
+                              <td><?php echo $emp_desig;?></td>
+                              <td><?php echo $emp_pay;?></td>
                               <td><?php echo $date?></td>
                               
                             </tr>
@@ -332,16 +354,16 @@ if(isset($_POST['submit'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="../../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {

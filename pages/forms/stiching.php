@@ -64,7 +64,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+                <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
                 <li class="breadcrumb-item active">Stitching Fabric </li>
               </ol>
             </div>
@@ -99,7 +99,30 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Cutting Fabric</label>
-                              <input type="number" name="cut_fab" class="form-control" id="cut_fab" placeholder="Enter Fabric in kg">
+                              <!-- <input type="number" name="cut_fab" class="form-control" id="cut_fab" placeholder="Enter Fabric in kg"> -->
+                            
+                              <select name="cut_fab" id="" class="form-control">
+                                    <option value="">Total Fabric</option>
+                                <?php
+                                  include('../forms/Backend/connection.php');
+                                  $id = $fabric = "";
+                                  
+                                    $query = mysqli_query($con, "SELECT * FROM `cutt_febric` ");
+                                
+                                    if(mysqli_num_rows($query) > 0){
+                                        while($data = mysqli_fetch_assoc($query)){
+
+                                            // $id        = $data['id'];
+                                            $cut_fab = $data['cut_fab'];
+                                        ?>
+                                          <option value="<?php echo $cut_fab; ?>"><?php echo $cut_fab; ?></option>
+                                            
+                                        <?php
+                                        }
+                                    }
+                                ?> 
+                              </select>
+
                             </div>
                           </div>
                           <div class="col-md-6 ">
@@ -129,12 +152,10 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+
+    <?php
+      @include('../../Components/footer.php');
+    ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

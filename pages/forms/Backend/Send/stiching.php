@@ -14,13 +14,13 @@ if(isset($_POST['submit'])){
    if(empty($_POST['cut_fab'])) {
    echo "<script> alert(Pleade fill all field) </script>";
    }else{
-   $cut_fab=$_POST['cut_fab']." KG";  
+   $cut_fab=$_POST['cut_fab'];  
    }
 
    if(empty($_POST['sti_fab'])) {
       echo "<script> alert(Pleade fill all field) </script>";
    }else{
-      $sti_fab=$_POST['sti_fab']." KG";  
+      $sti_fab=$_POST['sti_fab'];  
    }
 
    $remain_fab = $cut_fab-$sti_fab;

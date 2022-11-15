@@ -22,7 +22,7 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <!-- Jquery validation plug in  -->
    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-  <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
+  <script src="../../cdist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
   <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
   <script src="../../dist/js/validation.js"></script>
   <!-- search -->
@@ -137,12 +137,9 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    <?php
+      @include('../../Components/footer.php');
+    ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

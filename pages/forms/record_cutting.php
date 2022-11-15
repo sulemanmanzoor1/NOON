@@ -55,8 +55,9 @@ $(document).ready(function(){
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
               <li class="breadcrumb-item active">All cutting</li>
+              <li class="breadcrumb-item active"><a href="cutting.php">Add Cutting</a></li>
               <li class="breadcrumb-item active"><a href="cutting_report.php">cutting Report</a></li>
             </ol>
           </div>
@@ -104,7 +105,7 @@ $(document).ready(function(){
                             <tr>
                               <td><?php echo $id?></td>
                               <td><?php echo $fabric?></td>
-                              <td><?php echo $cut_fab?></td>
+                              <td><?php echo $cut_fab." KG";?></td>
                               <td><?php echo $remain_fab?></td>
                               <td><?php echo $date?></td>
                               <td>
@@ -140,12 +141,9 @@ $(document).ready(function(){
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <?php
+      @include('../../Components/footer.php');
+    ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

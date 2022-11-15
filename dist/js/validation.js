@@ -10,16 +10,13 @@ $(document).ready(function(){
         required: true,
       },
       name:{
-        required: true,
-        lettersonly:true
+        required: true
       },
       purpose:{
-        required: true,
-        lettersonly:true
+        required: true
       },
       fabric:{
-        required: true,
-        Numbersonly:true
+        required: true
       },
       cut_fab:{
         required: true,
@@ -29,6 +26,19 @@ $(document).ready(function(){
       },
 
       // salary
+      emp_name:{
+        required:true,
+        digits:false
+      },
+      emp_desig:{
+        required:true
+      },
+      emp_pay:{
+        required:true
+      },
+      date:{
+        required:true
+      },
       s_name:{
         required:true,
       },
@@ -57,95 +67,13 @@ $(document).ready(function(){
         required:true,
       },
       //Factory Equipment
-
-      lat:{
-        required: true,
-        Numbers: true
-        
-      },
-      lon:{
-        required: true,
-        Numbers: true
-        
-      },
-      country_id:{
-        forselect:true
-      },
-      customer_name:{
-        required:true,
-        lettersonly:true,
-        alphanumeric:true
-      },
-      city_id:{
-       forselect:true
-      },
-      customer_address:{
-        required:true,
-       
-      },
-      next_call_date:{
-        required:true,
-      },
-      first_name:{
-        required:true,
-        lettersonly:true
-      },
-      last_name:{
-        required:true,
-        lettersonly:true
-      },
-      employee_id:{
-        forselect:true
-      },
-      customer_id:{
-        forselect:true
-      },
-      start_time:{
-        dateFA:true
-      },
-      call_outcome_id:{
-        forselect:true
-      },
-
-      outcome_text:{
-        required:true,
-        lettersonly:true
-      },
-
     },
     messages:{
-      
-      add_status:{
-        forselect:"Select Status",
+      emp_name:{
+        required:" Only letters and white space.",
       },
-
-      country_name:{
-        forselect:"Select Country Name",
-      },
-      country_name_eng:{
-        forselect:"Select Country Name in Eng",
-      },
-      country_code:{
-        forselect:"Select Country Code",
-      },
-      city_name:{
-        required :"please Enter city name",
-
-      },
-      country_id:{
-        forselect:"Please Select Country"
-      },
-      city_id:{
-        forselect:"Please Select City"
-       },
-       employee_id:{
-        forselect:"Please Select Employee"
-      },
-      customer_id:{
-        forselect:"Please Select Customer"
-      },
-      call_outcome_id:{
-        forselect:"Please Select Call_outcome"
+      emp_desig:{
+        required:" Only letters and white space.",
       },
     }
   });

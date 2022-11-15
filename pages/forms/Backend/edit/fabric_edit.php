@@ -98,15 +98,230 @@ if(isset($_POST['update'])){
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar -->
-    <?php
-    @include('../../Components/header.php')
-    ?>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="index.php" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../../../../index.php" class="nav-link">Home</a>
+      </li>
+      <!--
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li> -->
+
+       <!-- SidebarSearch Form -->
+       <div class="form-inline" style="padding-left:700px ;">
+        <input id="myInput" type="text" placeholder="Search.." style="padding:10px 15px; border:1px solid grey; border-radius:10px;">
+      </div>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+    <!-- Navbar Search -->
+      
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li> -->
+    <!-- Navbar Search -->
+
+    </ul>
+  </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <?php
-    @include('../../Components/sidebar.php')
-    ?>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../../record_fabric.php" class="brand-link">
+      <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE </span>
+    </a>
+<br>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <!-- <a href="../../../../index.php" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+
+              </p>
+            </a> -->
+
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy" style="font-size:14px;"></i>
+              <p>
+                ADD New
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../fabric.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fabric</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../../cutting.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cutting Fabric</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../../stiching.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stitching Fabric</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="../../packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Fabric</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+              <p>
+                Record Table
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../record_fabric.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fabric Record</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../../record_cutting.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cutting Record</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../../record_stiching.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stitching Record</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../record_packing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Packing Record</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
+              <p>
+                Salary
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthy</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
+              <p>
+                Record Salary
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../record_month.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthy</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon 	far fa-sun" style="font-size:14px;"></i>
+              <p>
+                Factory Equipment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../add_equipment.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Equipment</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../../status_equipment.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Status</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -196,12 +411,9 @@ if(isset($_POST['update'])){
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    <?php
+      @include('../../../../Components/footer.php');
+    ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -212,14 +424,14 @@ if(isset($_POST['update'])){
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <script src="../../../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
  
   <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
+  <script src="../../../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
+  <script src="../../../../dist/js/demo.js"></script>
   <!-- Page specific script -->
   
 </body>
