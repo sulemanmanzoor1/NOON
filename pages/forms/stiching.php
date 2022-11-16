@@ -128,9 +128,16 @@
                           <div class="col-md-6 ">
                             <div class="form-group">
                               <label for="exampleInputEmail1" class="mt-3">Stitching Febric</label>
-                              <input type="number" name="sti_fab" class="form-control " id="sti_fab" placeholder="Enter Cutting Fabric in kg">
+                              <input type="number" name="sti_fab" class="form-control " id="sti_fab" placeholder="Enter Stitched Fabric in kg">
                             </div>
                           </div>
+                          
+                          <!-- <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="mt-3">Stitching Febric</label>
+                              <input type="text" name="cate_fab" class="form-control " id="cate_fab" placeholder="Enter Stiched Cate.">
+                            </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>

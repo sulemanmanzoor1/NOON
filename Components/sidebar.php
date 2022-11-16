@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="record_fabric.php" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE </span>
+      <span class="brand-text font-weight-light"><b>SG Grament</b> </span>
     </a>
 <br>
     <!-- Sidebar -->
@@ -68,6 +68,14 @@
                 </a>
               </li>
               
+              
+              <li class="nav-item">
+                <a href="finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Fabric</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -106,6 +114,15 @@
                   <p>Stitching Record</p>
                 </a>
               </li>
+
+              
+              <li class="nav-item">
+                <a href="record_finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Record</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="record_packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

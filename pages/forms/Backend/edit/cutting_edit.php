@@ -34,7 +34,7 @@ if(isset($_POST['update'])){
 
 
      $remain_fab =$fabric-$cut_fab;
-   $query = mysqli_query($con,"UPDATE `cutt_febric` SET `date`='$date',`fabric`='$fabric',`cut_fab`='$cut_fab',`remain_fab`='$remain_fab KG' WHERE id=".$id);
+   $query = mysqli_query($con,"UPDATE `cutt_febric` SET `date`='$date',`fabric`='$fabric',`cut_fab`='$cut_fab',`remain_fab`='$remain_fab' WHERE id=".$id);
    if($query){
       
     header("location:../../record_cutting.php");
@@ -368,7 +368,7 @@ if(isset($_POST['update'])){
                           <div class="col-md-6 ">
                             <div class="form-group mb-5">
                               <label for="exampleInputEmail1" class="">Total Fabric</label>
-                              <input type="text" name="fabric" value="<?php echo $row['fabric']?>" class="form-control " id="fabric" placeholder="Enter Fabric Amount in kg">
+                              <input type="text" name="fabric" value="<?php echo $row['fabric']?>" class="form-control " id="fabric" placeholder="Enter Fabric Amount in kg" disabled>
                             </div>
                           </div>
                           <div class="col-md-6 ">

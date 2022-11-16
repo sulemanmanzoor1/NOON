@@ -1,16 +1,16 @@
 $(document).ready(function(){
   $('#frm').validate({
     rules:{
-     
-      
+
       date:{
-        required: true,
+        required: true
       },
       to_date:{
         required: true,
       },
       name:{
-        required: true
+        required: true,
+        minlength: 5
       },
       purpose:{
         required: true
@@ -20,6 +20,9 @@ $(document).ready(function(){
       },
       cut_fab:{
         required: true,
+      },
+      cate_fab:{
+        required:true
       },
       sti_fab:{
         required: true,
@@ -36,9 +39,9 @@ $(document).ready(function(){
       emp_pay:{
         required:true
       },
-      date:{
-        required:true
-      },
+      // date:{
+      //   required:true
+      // },
       s_name:{
         required:true,
       },
@@ -67,14 +70,21 @@ $(document).ready(function(){
         required:true,
       },
       //Factory Equipment
+
     },
     messages:{
+
+      name:{
+        minlength: "Name at least 5 characters without digits"
+      },
+
       emp_name:{
         required:" Only letters and white space.",
       },
       emp_desig:{
         required:" Only letters and white space.",
       },
+      
     }
   });
 });

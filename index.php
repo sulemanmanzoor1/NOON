@@ -115,12 +115,22 @@
                 </a>
               </li>
               
+              
+              <li class="nav-item">
+                <a href="pages/forms/finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Fabric</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="pages/forms/packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Packing Fabric</p>
                 </a>
               </li>
+
+
             </ul>
           </li>
 
@@ -153,6 +163,14 @@
                   <p>Stitching Record</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="pages/forms/record_finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Fabric</p>
+                </a>
+              </li>
+            >
 
               <li class="nav-item">
                 <a href="pages/forms/record_packing.php" class="nav-link">
@@ -284,7 +302,7 @@
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard3.js"></script>
 </body>

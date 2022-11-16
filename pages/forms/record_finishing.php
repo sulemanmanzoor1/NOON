@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Cutting Record</title>
+  <title>All Finishing Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,17 +19,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- search -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
     });
-  });
-});
+  </script>
 
-</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -51,14 +51,14 @@ $(document).ready(function(){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Cutting </h1>
+            <h1>All Finishing </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-              <li class="breadcrumb-item active">All cutting</li>
-              <li class="breadcrumb-item active"><a href="cutting.php">Add Cutting</a></li>
-              <li class="breadcrumb-item active"><a href="cutting_report.php">cutting Report</a></li>
+              <li class="breadcrumb-item active">All Finishing</li>
+              <li class="breadcrumb-item active"><a href="finishing.php">Add Finishing</a></li>
+              <li class="breadcrumb-item active"><a href="finishing_report.php">Finishing Report</a></li>
             </ol>
           </div>
         </div>
@@ -82,36 +82,39 @@ $(document).ready(function(){
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Receieved Fabric</th>            
-                        <th>Cutting Fabric</th>                        
+                        <th>Receieved Stich Fabric</th>            
+                        <th>Finishing Fabric</th>                        
                         <th>Remaining Fabric</th>                        
+                        <th>Cat. Fabric</th>                        
                         <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
-                    <tbody id="myTable">
+                    <tbody  id="myTable">
                     <?php
-                      $select = mysqli_query($con,"SELECT * FROM `cutt_febric` "); 
+                      $select = mysqli_query($con,"SELECT * FROM `finish` "); 
                       
                       if(mysqli_num_rows($select)>0){
                         while($row = mysqli_fetch_array($select)){
                           $id = $row['id'];
                           $date = $row['date'];
-                          $fabric = $row['fabric'];
-                          $cut_fab = $row['cut_fab'];
-                          $remain_fab = $row['remain_fab'];
+                          $finish_fab = $row['finish_feb'];
+                          $sti_fab = $row['sti_feb'];
+                          $remain_fab = $row['remain_feb'];
+                          $cat_feb    = $row['cat_feb'];
 
                           ?>
                             <tr>
                               <td><?php echo $id?></td>
-                              <td><?php echo $fabric." KG"?></td>
-                              <td><?php echo $cut_fab." KG";?></td>
-                              <td><?php echo $remain_fab." KG";?></td>
+                              <td><?php echo $sti_fab." KG";?></td>
+                              <td><?php echo $finish_fab." KG";?></td>
+                              <td><?php echo $remain_fab." KG"?></td>
+                              <td><?php echo $cat_feb?></td>
                               <td><?php echo $date?></td>
                               <td>
-                                <a href="Backend/edit/cutting_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
+                                <a href="Backend/edit/finishing_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
                               
-                                <a href="Backend/Del/del_cutting.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
+                                <a href="Backend/Del/del_finishing.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                                 
                               </td>
                             </tr>
@@ -165,51 +168,6 @@ $(document).ready(function(){
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
-</script>
+
 </body>
 </html>

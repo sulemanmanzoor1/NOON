@@ -373,7 +373,7 @@ if(isset($_POST['update'])){
                           <div class="col-md-6 ">
                             <div class="form-group">
                               <label for="exampleInputEmail1" class="">Stitching Febric</label>
-                              <input type="text" name="sti_feb" id="sti_feb" value="<?php echo $row['sti_feb'];?>" class="form-control" placeholder=" Enter Packing Fabric in kg">
+                              <input type="text" name="sti_feb" id="sti_feb" value="<?php echo $row['sti_feb'];?>" class="form-control" placeholder=" Enter Packing Fabric in kg" disabled>
                             </div>
                           </div>
                           <div class="col-md-6">

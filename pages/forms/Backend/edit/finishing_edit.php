@@ -3,40 +3,50 @@
   $id="";
   $id = $_GET["id"];
 
-  $select = mysqli_query($con,"SELECT * FROM `stitch_feb` WHERE id=".$id);
+  $select = mysqli_query($con,"SELECT * FROM `finish` WHERE id=".$id);
   $row = mysqli_fetch_assoc($select);
 
 ?>
 
 <?php
-$date=$id=$name=$fabric=$purpose="";
+
+
+$date = $id = $sti_feb = $finish_feb =$cat_feb= "";
 
 if(isset($_POST['update'])){
     $id = $_GET['id'];
-   if(empty($_POST['date'])) {
-    echo "<script> alert(Pleade fill all field) </script>";
-   }else{
-    $date=$_POST['date'];
-   }
+  
+    if(empty($_POST['date'])) {
+      echo "<script> alert(Please fill all field) </script>";
+     }else{
+      $date=$_POST['date'];
+     }
+      
+     if(empty($_POST['finish_feb'])) {
+     echo "<script> alert(Pleade fill all field) </script>";
+     }else{
+     $finish_feb=$_POST['finish_feb'];  
+     }
+  
+     if(empty($_POST['cat_feb'])) {
+        echo "<script> alert(Pleade fill all field) </script>";
+        }else{
+        $cat_feb=$_POST['cat_feb'];  
+        }
+  
+     if(empty($_POST['sti_feb'])) {
+        echo "<script> alert(Pleade fill all field) </script>";
+     }else{
+        $sti_feb=$_POST['sti_feb'];  
+     }
 
-    if(empty($_POST['cut_fab'])) {
-    echo "<script> alert(Pleade fill all field) </script>";
-    }else{
-    $cut_fab=$_POST['cut_fab'];  
-    }
 
-    if(empty($_POST['sti_fab'])) {
-      echo "<script> alert(Pleade fill all field) </script>";
-      }else{
-      $sti_fab=$_POST['sti_fab'];  
-      }
+    $remain_feb =$sti_feb-$finish_feb;
 
-
-    $remain_fab =$cut_fab-$sti_fab;
-   $query = mysqli_query($con,"UPDATE `stitch_feb` SET `date`='$date',`cut_fab`='$cut_fab',`sti_fab`='$sti_fab',`remain_fab`='$remain_fab KG' WHERE id=".$id);
+   $query = mysqli_query($con,"UPDATE `finish` SET `date`='$date',`sti_feb`='$sti_feb',`finish_feb`='$finish_feb',`remain_feb`='$remain_feb',`cat_feb`='$cat_feb' WHERE id=".$id);
    if($query){
       
-    header("location:../../record_stiching.php");
+    header("location:../../record_finishing.php");
         
    }else{
     echo "wrong query";
@@ -55,7 +65,7 @@ if(isset($_POST['update'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Noon Management</title>
+  <title>Finishing Fabric Update</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -94,7 +104,7 @@ if(isset($_POST['update'])){
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -132,9 +142,9 @@ if(isset($_POST['update'])){
     <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index.php" class="brand-link">
+    <a href="../../record_fabric.php" class="brand-link">
       <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE </span>
+      <span class="brand-text font-weight-light"><b>SJ Grament</b> </span>
     </a>
 <br>
     <!-- Sidebar -->
@@ -201,6 +211,14 @@ if(isset($_POST['update'])){
                 </a>
               </li>
               
+              
+              <li class="nav-item">
+                <a href="../../finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Fabric</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="../../packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -239,6 +257,15 @@ if(isset($_POST['update'])){
                   <p>Stitching Record</p>
                 </a>
               </li>
+
+              
+              <li class="nav-item">
+                <a href="../../record_finishing.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Finishing Record</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="../../record_packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -319,6 +346,10 @@ if(isset($_POST['update'])){
     <!-- /.sidebar -->
   </aside>
 
+
+
+
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -326,12 +357,12 @@ if(isset($_POST['update'])){
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Fabric </h1>
+              <h1>Edit Finishing </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../stiching.php">Add Stitching</a></li>
-                <li class="breadcrumb-item active">Edit Stitching </li>
+                <li class="breadcrumb-item"><a href="../../../../index.php">Home</a></li>
+                <li class="breadcrumb-item active">Edit Finishing </li>
               </ol>
             </div>
           </div>
@@ -354,29 +385,40 @@ if(isset($_POST['update'])){
                 <form id="frm" action="" method="POST">
                   <div class="row">
                     <div class="card-body">
-                      <div class="col-12">
+                      <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-6">
-                          <input type="hidden" value="<?php echo $row['id']?>">
-                            <div class="form-group ">
+                          <input type="hidden" value="<?php echo $row['id'];?>">
+                            <div class="form-group">
                               <label for="exampleInputEmail1">Select Date</label>
-                             
-                              <input type="Date" name="date" value="<?php echo $row['date']?>" class="form-control" id="exampleInputEmail1">                 
+                              <input type="Date" name="date" value="<?php echo $row['date'];?>" class="form-control" id="exampleInputEmail1">
                             </div>
                           </div>
+
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Cut fabric</label>
-                              <input type="text" name="cut_fab" value="<?php echo $row['cut_fab']?>"class="form-control " id="purpose" placeholder="Enter Purpose for use Fabric" disabled>
+                              <label for="exampleInputEmail1" class="">Stitching Febric</label>
+                              <input type="text" name="sti_feb" id="sti_feb" value="<?php echo $row['sti_feb'];?>" class="form-control" placeholder=" Enter Packing Fabric in kg">
                             </div>
                           </div>
-                          <div class="col-md-6 ">
+
+                          <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Stitched fabric</label>
-                              <input type="text" name="sti_fab" value="<?php echo $row['sti_fab']?>"class="form-control " id="purpose" placeholder="Enter Purpose for use Fabric">
+                              <label for="exampleInputEmail1" class="mt-3">Finishing Fabric</label>
+                              <input type="text" name="finish_feb" class="form-control" value="<?php echo $row['finish_feb'];?>" id="finish_feb" placeholder="Enter Packing Fabric in kg" >
+                            </div>
+                          </div>
+
+                          
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="mt-3">Cat. Fabric</label>
+                              <input type="text" name="cat_feb" class="form-control" value="<?php echo $row['cat_feb'];?>" id="cat_feb" placeholder="Enter Finish Fabric in kg" >
                             </div>
                           </div>
                         </div>
+                        
+                        
                       </div>
                     </div>
                   </div>
@@ -404,6 +446,7 @@ if(isset($_POST['update'])){
     <?php
       @include('../../../../Components/footer.php');
     ?>
+
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->

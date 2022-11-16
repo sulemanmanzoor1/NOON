@@ -1,3 +1,6 @@
+<?php
+  include('../forms/Backend/Send/fabric.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +101,7 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Name</label>
+                              <label for="exampleInputEmail1" class="">Name</label> <?php echo "&nbsp&nbsp&nbsp&nbsp;".$nameErr ;?></span>
                               <input type="text" name="name" class="form-control " id="name" placeholder="Fabric Recieve by person ">
                             </div>
                           </div>

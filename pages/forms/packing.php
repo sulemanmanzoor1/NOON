@@ -102,24 +102,24 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Stitching Febric</label>
+                              <label for="exampleInputEmail1" class="">Finishing Febric</label>
                               <!-- <input type="number" name="sti_feb" class="form-control " value="<?php echo $row['sti_fab'];?>" id="sti_feb" placeholder="Enter Stiching Fabric in kg"> -->
 
                               <select name="sti_feb" id="" class="form-control">
-                                    <option value="">Stitching Fabric</option>
+                                    <option value="">Finishing Fabric</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
                                   $id = $sti_feb = "";
                                   
-                                    $query = mysqli_query($con, "SELECT * FROM `stitch_feb` ");
+                                    $query = mysqli_query($con, "SELECT * FROM `finish` ");
                                 
                                     if(mysqli_num_rows($query) > 0){
                                         while($data = mysqli_fetch_assoc($query)){
 
                                             // $id        = $data['id'];
-                                            $sti_fab = $data['sti_fab'];
+                                            $finish_feb = $data['finish_feb'];
                                         ?>
-                                            <option value="<?php echo $sti_fab; ?>"><?php echo $sti_fab; ?></option>
+                                            <option value="<?php echo $finish_feb; ?>"><?php echo $finish_feb; ?></option>
                                             
                                         <?php
                                         }

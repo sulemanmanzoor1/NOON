@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Packing Record</title>
+  <title>All Finishing Record</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -50,9 +50,8 @@ if(isset($_POST['submit'])){
     <!-- Brand Logo -->
     <a href="record_fabric.php" class="brand-link">
       <img src="../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><b>SG Grament</b> </span>
-    </a>
-  
+      <span class="brand-text font-weight-light"><b>SJ Grament</b> </span>
+    </a>  
     </a>
 <br>
     <!-- Sidebar -->
@@ -119,7 +118,6 @@ if(isset($_POST['submit'])){
                 </a>
               </li>
 
-              
               <li class="nav-item">
                 <a href="../finishing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -165,7 +163,6 @@ if(isset($_POST['submit'])){
                   <p>Stitching Record</p>
                 </a>
               </li>
-
               
               <li class="nav-item">
                 <a href="../record_finishing.php" class="nav-link">
@@ -195,15 +192,6 @@ if(isset($_POST['submit'])){
               <li class="nav-item">
                 <a href="../month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Contract</p>
-                </a>
-              </li>
-            </ul>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../monthly.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
               </li>
@@ -221,15 +209,6 @@ if(isset($_POST['submit'])){
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../record_month.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contract</p>
-                </a>
-              </li>
-            </ul>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../record_monthly.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
@@ -283,7 +262,7 @@ if(isset($_POST['submit'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 >All Packing Record </h1>
+            <h1 >All Finishing Record </h1>
            
           </div>
           <div class="col-sm-6">
@@ -318,7 +297,8 @@ if(isset($_POST['submit'])){
                     <tr>
                                 
                         <th>Receieved Stitched Fabric</th>                        
-                        <th>Packed Fabric</th>                        
+                        <th>Finish Fabric</th>
+                        <th>Remaining Fabric</th>                        
                         <th>Date (Y/M/D)</th>
 
                        
@@ -326,7 +306,7 @@ if(isset($_POST['submit'])){
                     </thead>
                     <tbody>
                     <?php
-                      $ret=mysqli_query($con,"select * from  pack_feb where date between '$fdate' and '$tdate' ");
+                      $ret=mysqli_query($con,"select * from  finish where date between '$fdate' and '$tdate' ");
                       $num=mysqli_num_rows($ret);
                       
                       if(mysqli_num_rows($ret)>0){
@@ -334,13 +314,15 @@ if(isset($_POST['submit'])){
                          
                           $date = $row['date'];
                           $sti_feb = $row['sti_feb'];
-                          $pack_feb = $row['pack_feb'];
+                          $finish_feb = $row['finish_feb'];
+                          $remain_feb = $row['remain_feb'];
 
                           ?>
                             <tr>
                                     
                               <td><?php echo $sti_feb?></td>
-                              <td><?php echo $pack_feb?></td>
+                              <td><?php echo $finish_feb?></td>
+                              <td><?php echo $remain_feb?></td>
                               <td><?php echo $date?></td>
                               
                             </tr>
