@@ -80,7 +80,7 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Name</th>
+                        <th>Customer Name</th>
                         <th>Receieved Fabric</th>            
                         <th>Purpose</th>                        
                         <th>Date (Y/M/D)</th>

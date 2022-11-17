@@ -82,9 +82,9 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Receieved Cut Fabric</th>            
-                        <th>Stitching Fabric</th>                        
-                        <th>Remaining Fabric</th>                        
+                        <th>Receieved Cut Pieces</th>            
+                        <th>Stitching Pieces</th>                        
+                        <th>Remaining Pieces</th>                        
                         <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>

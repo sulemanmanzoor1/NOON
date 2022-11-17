@@ -60,12 +60,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Stitching Fabric Details </h1>
+              <h1>Stitching Pieces Details </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Stitching Fabric </li>
+                <li class="breadcrumb-item active">Stitching Pieces </li>
               </ol>
             </div>
           </div>
@@ -98,11 +98,11 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Cutting Fabric</label>
+                              <label for="exampleInputEmail1">Cutting Pieces</label>
                               <!-- <input type="number" name="cut_fab" class="form-control" id="cut_fab" placeholder="Enter Fabric in kg"> -->
                             
                               <select name="cut_fab" id="" class="form-control">
-                                    <option value="">Total Fabric</option>
+                                    <option value="">Total Pieces</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
                                   $id = $fabric = "";
@@ -112,8 +112,8 @@
                                     if(mysqli_num_rows($query) > 0){
                                         while($data = mysqli_fetch_assoc($query)){
 
-                                            // $id        = $data['id'];
-                                            $cut_fab = $data['cut_fab'];
+                                          // $id        = $data['id'];
+                                          $cut_fab = $data['cut_fab'];
                                         ?>
                                           <option value="<?php echo $cut_fab; ?>"><?php echo $cut_fab; ?></option>
                                             
@@ -127,8 +127,8 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Stitching Febric</label>
-                              <input type="number" name="sti_fab" class="form-control " id="sti_fab" placeholder="Enter Stitched Fabric in kg">
+                              <label for="exampleInputEmail1" class="mt-3">Stitching Pieces</label>
+                              <input type="number" name="sti_fab" class="form-control " id="sti_fab" placeholder="Enter Stitched Pieces in kg">
                             </div>
                           </div>
                           

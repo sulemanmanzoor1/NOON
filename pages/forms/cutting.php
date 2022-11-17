@@ -60,12 +60,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Cutting Fabric Details </h1>
+              <h1>Cutting Pieces Details </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Cutting Fabric </li>
+                <li class="breadcrumb-item active">Cutting Pieces </li>
               </ol>
             </div>
           </div>
@@ -99,10 +99,10 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Total Fabric</label>
+                              <label for="exampleInputEmail1">Total Pieces</label>
                               <!-- <input type="number" name="fabric" class="form-control" id="fabric" placeholder="Enter Fabric in kg"> -->
                               <select name="fabric" id="" class="form-control">
-                                    <option value="">Total Fabric</option>
+                                    <option value="">Total Pieces</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
                                   $id = $fabric = "";
@@ -127,7 +127,7 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Cutting Fabric</label>
+                              <label for="exampleInputEmail1" class="mt-3">Cutting Pieces</label>
                               <input type="number" name="cut_fab" class="form-control " id="cut_fab" placeholder="Enter Cutting Fabric in kg">
                             </div>
                           </div>
@@ -135,7 +135,7 @@
                           
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Cutting Cate.</label>
+                              <label for="exampleInputEmail1" class="mt-3">Cutting Categorie</label>
                               <input type="text" name="cate_fab" class="form-control " id="cate_fab" placeholder="Enter Cutting Cate. Fabric">
                             </div>
                           </div>

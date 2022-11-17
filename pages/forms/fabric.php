@@ -101,7 +101,7 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Name</label> <?php echo "&nbsp&nbsp&nbsp&nbsp;".$nameErr ;?></span>
+                              <label for="exampleInputEmail1" class="">Customer Name</label>
                               <input type="text" name="name" class="form-control " id="name" placeholder="Fabric Recieve by person ">
                             </div>
                           </div>
@@ -125,7 +125,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary" onclick="validate();">Submit</button>
                   </div>
                 </form>
               </div>
@@ -214,6 +214,21 @@
       });
     });
   </script>
+    <!-- js validation -->
+  <!-- <script>
+    function validate(){
+      var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+      var name = document.getElementById('name').value;
+      if(!regName.test(name)){
+          alert('Customer Name Letters and white spaces allowed.');
+          document.getElementById('name').focus();
+          return false;
+      }else{
+          alert('Valid name given.');
+          return true;
+      }
+    }
+</script> -->
 </body>
 
 </html>

@@ -83,8 +83,9 @@ $(document).ready(function(){
                     <tr>
                         <th>ID #</th>
                         <th>Receieved Fabric</th>            
-                        <th>Cutting Fabric</th>                        
-                        <th>Remaining Fabric</th>                        
+                        <th>Cutting Pieces</th>                        
+                        <th>Remaining Pieces</th>                        
+                        <th>Categorie Pieces</th>                        
                         <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
@@ -98,6 +99,7 @@ $(document).ready(function(){
                           $id = $row['id'];
                           $date = $row['date'];
                           $fabric = $row['fabric'];
+                          $cat_fab = $row['cate_fab'];
                           $cut_fab = $row['cut_fab'];
                           $remain_fab = $row['remain_fab'];
 
@@ -107,6 +109,7 @@ $(document).ready(function(){
                               <td><?php echo $fabric." KG"?></td>
                               <td><?php echo $cut_fab." KG";?></td>
                               <td><?php echo $remain_fab." KG";?></td>
+                              <td><?php echo $cat_fab;?></td>
                               <td><?php echo $date?></td>
                               <td>
                                 <a href="Backend/edit/cutting_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>

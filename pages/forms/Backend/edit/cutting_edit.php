@@ -9,7 +9,7 @@
 ?>
 
 <?php
-$date=$id=$name=$fabric=$purpose="";
+$date=$id=$name=$fabric=$purpose=$cate_fab="";
 
 if(isset($_POST['update'])){
     $id = $_GET['id'];
@@ -22,6 +22,7 @@ if(isset($_POST['update'])){
     
    if(empty($_POST['fabric'])) {
       echo "<script> alert(Pleade fill all field) </script>";
+      
      }else{
       $fabric=$_POST['fabric'];  
      }
@@ -32,9 +33,14 @@ if(isset($_POST['update'])){
       $cut_fab=$_POST['cut_fab'];  
      }
 
+     if(empty($_POST['cate_fab'])) {
+      echo "<script> alert(Pleade fill all field) </script>";
+     }else{
+      $cate_fab=$_POST['cate_fab'];  
+     }
 
-     $remain_fab =$fabric-$cut_fab;
-   $query = mysqli_query($con,"UPDATE `cutt_febric` SET `date`='$date',`fabric`='$fabric',`cut_fab`='$cut_fab',`remain_fab`='$remain_fab' WHERE id=".$id);
+     (int)$remain_fab = (int)$fabric-(int)$cut_fab;
+   $query = mysqli_query($con,"UPDATE `cutt_febric` SET `date`='$date',`fabric`='$fabric',`cut_fab`='$cut_fab',`cate_fab`='$cate_fab',`remain_fab`='$remain_fab' WHERE id=".$id);
    if($query){
       
     header("location:../../record_cutting.php");
@@ -131,195 +137,9 @@ if(isset($_POST['update'])){
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="../../record_fabric.php" class="brand-link">
-      <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE </span>
-    </a>
-<br>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <!-- <a href="../../../../index.php" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-
-              </p>
-            </a> -->
-
-          </li>
-
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-copy" style="font-size:14px;"></i>
-              <p>
-                ADD New
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../fabric.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fabric</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../cutting.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cutting Fabric</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../stiching.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Stitching Fabric</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="../../packing.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Packing Fabric</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
-              <p>
-                Record Table
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../record_fabric.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fabric Record</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../record_cutting.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cutting Record</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../record_stiching.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Stitching Record</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../record_packing.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Packing Record</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
-              <p>
-                Salary
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../month.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Monthy</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="nav-icon 	fas fa-money-bill-alt" style="font-size:14px;"></i>
-              <p>
-                Record Salary
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../record_month.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Monthy</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="nav-icon 	far fa-sun" style="font-size:14px;"></i>
-              <p>
-                Factory Equipment
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../add_equipment.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Equipment</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../status_equipment.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Status</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          
-
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
+<?php
+  include('component/sidebar.php');
+?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -327,12 +147,12 @@ if(isset($_POST['update'])){
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Cutting Fabric </h1>
+              <h1>Edit Cutting Pieces </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-                <li class="breadcrumb-item active">Edit Cutting Fabric </li>
+                <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+                <li class="breadcrumb-item active">Edit Cutting Pieces </li>
               </ol>
             </div>
           </div>
@@ -368,13 +188,20 @@ if(isset($_POST['update'])){
                           <div class="col-md-6 ">
                             <div class="form-group mb-5">
                               <label for="exampleInputEmail1" class="">Total Fabric</label>
-                              <input type="text" name="fabric" value="<?php echo $row['fabric']?>" class="form-control " id="fabric" placeholder="Enter Fabric Amount in kg" disabled>
+                              <input type="number" name="fabric" value="<?php echo $row['fabric']?>" class="form-control " id="fabric" disabled>
                             </div>
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Cut Fabric</label>
-                              <input type="text" name="cut_fab" value="<?php echo $row['cut_fab']?>"class="form-control " id="purpose" placeholder="Enter Purpose for use Fabric">
+                              <label for="exampleInputEmail1" class="">Cut Pieces</label>
+                              <input type="number" name="cut_fab" value="<?php echo $row['cut_fab']?>"class="form-control " id="purpose" placeholder="Enter Purpose">
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Categorie Pieces</label>
+                              <input type="text" name="cut_fab" value="<?php echo $row['cate_fab']?>"class="form-control " id="purpose" placeholder="Enter Categorie">
                             </div>
                           </div>
                         </div>

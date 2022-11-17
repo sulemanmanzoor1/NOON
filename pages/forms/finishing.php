@@ -64,12 +64,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Finishing Fabric Details </h1>
+              <h1>Finishing Pieces   Details </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Finishing Fabric </li>
+                <li class="breadcrumb-item active">Finishing Pieces </li>
               </ol>
             </div>
           </div>
@@ -102,11 +102,11 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Stitching Febric</label>
+                              <label for="exampleInputEmail1" class="">Stitching Pieces</label>
                               <!-- <input type="number" name="sti_feb" class="form-control " value="<?php echo $row['sti_fab'];?>" id="sti_feb" placeholder="Enter Stiching Fabric in kg"> -->
 
                               <select name="sti_feb" id="" class="form-control">
-                                    <option value="">Stitching Fabric</option>
+                                    <option value="">Stitching Pieces</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
                                   $id = $sti_feb = "";
@@ -132,14 +132,14 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Finishing Fabric</label>
-                              <input type="number" name="finish_feb" class="form-control" id="finish_feb" placeholder="Enter Finish Fabric in kg">
+                              <label for="exampleInputEmail1" class="mt-3">Finishing Pieces</label>
+                              <input type="number" name="finish_feb" class="form-control" id="finish_feb" placeholder="Enter Finish Pieces in kg">
                             </div>
                           </div>
                           
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Cat. Fabric</label>
+                              <label for="exampleInputEmail1" class="mt-3">Categorie Pieces</label>
                               <input type="text" name="cat_feb" class="form-control" id="cat_feb" placeholder="Enter Catagorie">
                             </div>
                           </div>

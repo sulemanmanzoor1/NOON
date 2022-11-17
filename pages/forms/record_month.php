@@ -83,7 +83,8 @@
                         <th>ID #</th>
                         <th>Name</th>
                         <th>Services</th>            
-                        <th>Price</th>
+                        <th>Total Piece</th>
+                        <th>Total Price</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
@@ -99,15 +100,19 @@
                           $name          = $_data['s_name'];
                           $services      = $_data['services'];
                           $sum           = $_data['price'];
+                          $piece           = $_data['piece'];
                                                      
                           ?>
+
+                          
                             <tr>
                               <?php
                               ?>
                               <td><?php echo $id;?></td>
                               <td><?php echo $name;?></td>
                               <td><?php echo $services;?></td>
-                              <td><?php echo $sum;?></td>
+                              <td><?php echo $piece;?></td>
+                              <td><?php echo array_sum( explode( ',', $sum ) );?></td>
                               <td>
                                 <a href="Backend/edit/salary_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>                              
                                 <a href="Backend/delete/salary.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
@@ -117,6 +122,12 @@
 
                           <?php
                         }
+                      
+                       
+                    //     $su = array_sum( explode( ',', $sum ) );
+                    // print_r($su);
+                      
+                    //     die();
                       }
 
                     ?>

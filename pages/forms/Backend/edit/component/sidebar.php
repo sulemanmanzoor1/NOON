@@ -1,10 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="record_fabric.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="../../record_fabric.php" class="brand-link">
+      <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><b>SG Grament</b> </span>
     </a>
-<br>
+    <br>
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -21,21 +21,22 @@
           </div>
         </div>
       </div>
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <!-- <li class="nav-item menu-open">
-            <a href="../../index.php" class="nav-link active">
+          <li class="nav-item menu-open">
+            <!-- <a href="../../../../index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
 
               </p>
-            </a>
+            </a> -->
 
-          </li> -->
+          </li>
 
 
           <li class="nav-item">
@@ -48,36 +49,35 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="fabric.php" class="nav-link">
+                <a href="../../fabric.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fabric</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="cutting.php" class="nav-link">
+                <a href="../../cutting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cutting Pieces</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="stiching.php" class="nav-link">
+                <a href="../../stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Pieces</p>
                 </a>
               </li>
               
-              
               <li class="nav-item">
-                <a href="finishing.php" class="nav-link">
+                <a href="../../finishing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Finishing Pieces</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="packing.php" class="nav-link">
+                <a href="../../packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Packing</p>
                 </a>
@@ -95,36 +95,34 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="record_fabric.php" class="nav-link">
+                <a href="../../record_fabric.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fabric Record</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="record_cutting.php" class="nav-link">
+                <a href="../../record_cutting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cutting Record</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="record_stiching.php" class="nav-link">
+                <a href="../../record_stiching.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stitching Record</p>
                 </a>
               </li>
-
               
               <li class="nav-item">
-                <a href="record_finishing.php" class="nav-link">
+                <a href="../../record_finishing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Finishing Record</p>
                 </a>
               </li>
-
               <li class="nav-item">
-                <a href="record_packing.php" class="nav-link">
+                <a href="../../record_packing.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Packing Record</p>
                 </a>
@@ -142,7 +140,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="month.php" class="nav-link">
+                <a href="../../month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contract</p>
                 </a>
@@ -151,7 +149,7 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="monthly.php" class="nav-link">
+                <a href="../../monthly.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
@@ -169,15 +167,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="record_month.php" class="nav-link">
+                <a href="../../record_month.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contract</p>
                 </a>
               </li>
             </ul>
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="record_monthly.php" class="nav-link">
+                <a href="../../record_monthly.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monthy</p>
                 </a>
@@ -195,14 +194,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add_equipment.php" class="nav-link">
+                <a href="../../add_equipment.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Equipment</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="status_equipment.php" class="nav-link">
+                <a href="../../status_equipment.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Status</p>
                 </a>
@@ -219,6 +218,3 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
-
-

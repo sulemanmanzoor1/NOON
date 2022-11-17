@@ -64,12 +64,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Packing Fabric Details </h1>
+              <h1>Packing Pieces Details </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-                <li class="breadcrumb-item active">Packing Fabric </li>
+                <li class="breadcrumb-item active">Packing Pieces </li>
               </ol>
             </div>
           </div>
@@ -102,11 +102,11 @@
                           </div>
                           <div class="col-md-6 ">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="">Finishing Febric</label>
+                              <label for="exampleInputEmail1" class="">Finishing Pieces</label>
                               <!-- <input type="number" name="sti_feb" class="form-control " value="<?php echo $row['sti_fab'];?>" id="sti_feb" placeholder="Enter Stiching Fabric in kg"> -->
 
                               <select name="sti_feb" id="" class="form-control">
-                                    <option value="">Finishing Fabric</option>
+                                    <option value="">Finishing Pieces</option>
                                 <?php
                                   include('../forms/Backend/connection.php');
                                   $id = $sti_feb = "";
@@ -132,8 +132,8 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="exampleInputEmail1" class="mt-3">Packing Fabric</label>
-                              <input type="number" name="pack_feb" class="form-control" id="cut_feb" placeholder="Enter Packing Fabric in kg">
+                              <label for="exampleInputEmail1" class="mt-3">Packing Pieces</label>
+                              <input type="number" name="pack_feb" class="form-control" id="cut_feb" placeholder="Enter Packing Pieces in kg">
                             </div>
                           </div>
                         </div>
