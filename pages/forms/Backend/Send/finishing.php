@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
       $sti_feb=$_POST['sti_feb'];  
    }
 
-   $remain_feb = $sti_feb-$finish_feb;
+   $remain_feb = (int)$sti_feb-(int)$finish_feb;
 
 
 

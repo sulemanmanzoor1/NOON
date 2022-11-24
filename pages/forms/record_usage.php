@@ -45,14 +45,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Status Equipment</h1>
+            <h1>All Daily Usage</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-              <li class="breadcrumb-item active">Status Equipment</li>
-              <li class="breadcrumb-item active"><a href="add_equipment.php">Add Equipment</a></li>
-              <li class="breadcrumb-item active"><a href="equipment_report.php">Equipment Report</a></li>
+              <li class="breadcrumb-item active">All Usage</li>
+              <li class="breadcrumb-item active"><a href="add_usage.php">Add Daily Usage</a></li>
+              <li class="breadcrumb-item active"><a href="dail_usage_report.php">Daily Usage Report</a></li>
             </ol>
           </div>
         </div>
@@ -76,10 +76,11 @@
                     <thead>
                     <tr>
                         <th>ID #</th>
-                        <th>Equipment Name</th>
-                        <th>Quantity</th>            
-                        <th>Purchase Price</th>
-                        <th>Status</th>                        
+                        <th>Customer Name</th>
+                        <th>Product sale Name</th>            
+                        <th>Total Amount</th>                       
+                        <th>Receive Amount</th>                       
+                        <th>Remaining Amount</th>                       
                         <th>Date (Y/M/D)</th>
                         <th>Operations</th>
                     </tr>
@@ -89,29 +90,33 @@
 
                       @include('Backend/connection.php');
 
-                      $query = mysqli_query($con,"SELECT * FROM `equipment` "); 
+                      $query = mysqli_query($con,"SELECT * FROM `daily_usage` "); 
                       
                       if(mysqli_num_rows($query) > 0){
 
                         while($_data = mysqli_fetch_array($query)){
                           $id            = $_data['id'];
-                          $add_equipment = $_data['add_equipment'];
-                          $quantity      = $_data['quantity'];
-                          $purchase      = $_data['purchase'];
-                          $add_status    = $_data['add_status'];
+                          $name          = $_data['name'];
+                          $sale_name     = $_data['sale_name'];
+                          $totalamount   = $_data['totalamount'];
+                          $receive       = $_data['receive'];
                           $date          = $_data['date'];
 
                           ?>
                             <tr>
+                              <?php
+                                $remain = $totalamount - $receive;
+                              ?>
                               <td><?php echo $id?></td>
-                              <td><?php echo $add_equipment?></td>
-                              <td><?php echo $quantity?></td>
-                              <td><?php echo $purchase?></td>
-                              <td><?php echo $add_status?></td>
+                              <td><?php echo $name?></td>
+                              <td><?php echo $sale_name?></td>
+                              <td><?php echo $totalamount?></td>
+                              <td><?php echo $receive?></td>
+                              <td><?php echo $remain?></td>
                               <td><?php echo $date?></td>
                               <td>
-                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
-                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
+                                <a href="Backend/edit/daily_usage.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
+                                <a href="Backend/delete/daily_usage.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
                                 
                               </td>
                             </tr>

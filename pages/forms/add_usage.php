@@ -11,32 +11,45 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- search -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
-  </script>
+  <!-- Jquery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- Jquery validation plug in  -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+  <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
+  <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
+  <script src="../../dist/js/validation.js"></script>
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php 
-    @include('../../Components/header.php')
-  ?>
+    <?php
+      @include('../../Components/header.php')
+    ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php 
-    @include('../../Components/sidebar.php')
-  ?>
+    <?php
+      @include('../../Components/sidebar.php');
+    ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -45,14 +58,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Status Equipment</h1>
+            <h1>Add Usage <small style="font-size: 14px;letter-spacing: 1px;">( Credit<small>'s</small>/Debit )</small></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-              <li class="breadcrumb-item active">Status Equipment</li>
-              <li class="breadcrumb-item active"><a href="add_equipment.php">Add Equipment</a></li>
-              <li class="breadcrumb-item active"><a href="equipment_report.php">Equipment Report</a></li>
+              <li class="breadcrumb-item active">Add Usage </li>
             </ol>
           </div>
         </div>
@@ -68,63 +79,60 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title"> <small></small></h3>
+                
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>ID #</th>
-                        <th>Equipment Name</th>
-                        <th>Quantity</th>            
-                        <th>Purchase Price</th>
-                        <th>Status</th>                        
-                        <th>Date (Y/M/D)</th>
-                        <th>Operations</th>
-                    </tr>
-                    </thead>
-                    <tbody id="myTable">
-                    <?php
+                <form id="frm" action="Backend/Send/add_usage.php" method="POST">
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Select Date</label>
+                              <input type="Date" name="date" class="form-control" id="exampleInputEmail1" >
+                            </div>
+                          </div>
 
-                      @include('Backend/connection.php');
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Customer Name</label>
+                              <input type="text" name="name" class="form-control" id="add_equipment" placeholder="Enter Name">
+                            </div>
+                          </div>
 
-                      $query = mysqli_query($con,"SELECT * FROM `equipment` "); 
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Product Sale Name </label>
+                              <input type="text" name="sale_name" class="form-control" id="quantity" placeholder="Enter Product Name ">
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Total Amount</label>
+                              <input type="number" name="totalamount" class="form-control " id="purchase" placeholder="Enter Total Amount">
+                            </div>
+                          </div>
+
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="" class="">Receive Amount</label>
+                              <input type="number" name="receive" class="form-control " id="" placeholder="Enter Receive Amount">
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
                       
-                      if(mysqli_num_rows($query) > 0){
-
-                        while($_data = mysqli_fetch_array($query)){
-                          $id            = $_data['id'];
-                          $add_equipment = $_data['add_equipment'];
-                          $quantity      = $_data['quantity'];
-                          $purchase      = $_data['purchase'];
-                          $add_status    = $_data['add_status'];
-                          $date          = $_data['date'];
-
-                          ?>
-                            <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $add_equipment?></td>
-                              <td><?php echo $quantity?></td>
-                              <td><?php echo $purchase?></td>
-                              <td><?php echo $add_status?></td>
-                              <td><?php echo $date?></td>
-                              <td>
-                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
-                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
-                                
-                              </td>
-                            </tr>
-
-                          <?php
-                        }
-                      }
-
-                    ?>
-                   
-                   
-                    </tbody>
-                </table>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
             </div>
             <!-- /.card -->
             </div>

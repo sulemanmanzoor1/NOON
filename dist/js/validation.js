@@ -69,7 +69,20 @@ $(document).ready(function(){
       add_status:{
         required:true,
       },
-      //Factory Equipment
+      //Factory 
+      price:{
+        required:true
+      },
+      // daily usage
+      sale_name:{
+        required:true
+      },
+      totalamount:{
+        required:true,
+      },
+      receive:{
+        required:true,
+      },
 
     },
     messages:{

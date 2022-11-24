@@ -27,16 +27,7 @@
             $value_pr[] = $pr;
             $pr = implode(",", $value_pr);
         }
-    
-        // foreach($services = ($_POST['services']) as $ss){
-        //     $value_s[] = $ss;
-        //     $s = implode(",", $value_s);
-        //  }
-        //  foreach($price = ($_POST['price']) as $pr){
-        //     $value_p[] = $pr;
-        //     $p = implode(",", $value_p);
-        //  }
-       
+
         $edit = mysqli_query($con, "UPDATE `salary` SET `s_name`='$name',`services`='$ser',`price`='$pr' WHERE id=".$id);
 
         if($edit){
@@ -54,7 +45,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salaries</title>
+  <title>ZG Grament</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -169,23 +160,10 @@
                                   <th>Price</th>
                               </tr>
                               <tr>
-                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" value="<?php echo $edit['services'];?>"></td>
-                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price" value="<?php echo $edit['price'];?>"></td>
+                                  <td><input class="form-control" type="text" name="services[]" placeholder="Enter Service" value="<?php echo $edit['services'];?>" required="required"></td>
+                                  <td><input class="form-control" type="text" name="price[]" placeholder="Enter Price" value="<?php echo $edit['price'];?>" required="required"></td>
                               </tr>
                             </table>
-                            <!-- <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Services</label>
-                                <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Price</label>
-                                <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
-                              </div>
-                            </div> -->
-
                           </div>
                         </div>
                         
@@ -193,7 +171,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                      <button type="submit" name="update" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="update" class="btn btn-primary">Update</button>
                     </div>
                   </form>
               </div>

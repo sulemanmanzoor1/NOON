@@ -259,6 +259,59 @@
             </ul>
           </li>
 
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon   fa fa-credit-card" style="font-size:14px;"></i>
+            <!-- <i class="nav-icon 	far fa-sun" ></i> -->
+              <p>
+                Expense
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/expense.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Expense</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/forms/record_expense.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Record Expense</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+                    
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon   fas fa-toolbox" style="font-size:14px;"></i>
+            <!-- <i class="nav-icon 	far fa-sun" ></i> -->
+              <p>
+                Daily Usage
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/add_usage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Usage</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/forms/record_usage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Record Usage</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

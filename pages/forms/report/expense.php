@@ -1,3 +1,27 @@
+<?php
+
+@include('../Backend/connection.php');
+$fdate = $tdate = "";
+if(isset($_POST['submit'])){
+    if(empty($_POST['date'])){
+        echo "please fill all fields";
+    }else{
+        $fdate = $_POST['date'];
+    }
+    if(empty($_POST['to_date'])){
+        echo "please fill all fields";
+    }else{
+        $tdate = $_POST['to_date'];
+    }    
+      
+}
+?>
+
+
+<?php
+  @include('Backend/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,35 +32,27 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- search -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
-  </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
   <?php 
-    @include('../../Components/header.php')
+    @include('../../../Components/header.php')
   ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php 
-    @include('../../Components/sidebar.php')
-  ?>
+  <?php
+  include('component/sidebar.php');
+ ?>
+
+
+
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -45,14 +61,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Status Equipment</h1>
+            <h1 >All Expense Record </h1>
+           
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
-              <li class="breadcrumb-item active">Status Equipment</li>
-              <li class="breadcrumb-item active"><a href="add_equipment.php">Add Equipment</a></li>
-              <li class="breadcrumb-item active"><a href="equipment_report.php">Equipment Report</a></li>
+            <button class="btn btn-primary" onclick="window.print()">Print Report</button>
             </ol>
           </div>
         </div>
@@ -72,48 +86,44 @@
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
+                <h6 class="pt-4 ml-3">From Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <td><?php echo $fdate; ?> </td></h6>
+                <h6 class="pb-2 pt-2 ml-3">To Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <td><?php echo  $tdate; ?></td></h6>
+
                 <table class="table">
+                   
+                
                     <thead>
                     <tr>
-                        <th>ID #</th>
-                        <th>Equipment Name</th>
-                        <th>Quantity</th>            
-                        <th>Purchase Price</th>
-                        <th>Status</th>                        
+                        
+                        <th>Customer Name</th>
+                        <th>Product Name</th>            
+                        <th>Price</th>                          
                         <th>Date (Y/M/D)</th>
-                        <th>Operations</th>
+
+                       
                     </tr>
                     </thead>
-                    <tbody id="myTable">
+                    <tbody >
                     <?php
-
-                      @include('Backend/connection.php');
-
-                      $query = mysqli_query($con,"SELECT * FROM `equipment` "); 
+                      $ret=mysqli_query($con,"select * from  expense where date between '$fdate' and '$tdate' ");
+                      $num=mysqli_num_rows($ret);
                       
-                      if(mysqli_num_rows($query) > 0){
-
-                        while($_data = mysqli_fetch_array($query)){
+                      if(mysqli_num_rows($ret)>0){
+                        while($_data = mysqli_fetch_array($ret)){
                           $id            = $_data['id'];
-                          $add_equipment = $_data['add_equipment'];
+                          $add_equipment = $_data['name'];
                           $quantity      = $_data['quantity'];
-                          $purchase      = $_data['purchase'];
-                          $add_status    = $_data['add_status'];
+                          $purchase      = $_data['price'];
                           $date          = $_data['date'];
 
                           ?>
                             <tr>
-                              <td><?php echo $id?></td>
-                              <td><?php echo $add_equipment?></td>
-                              <td><?php echo $quantity?></td>
-                              <td><?php echo $purchase?></td>
-                              <td><?php echo $add_status?></td>
+                              <!-- <td><?php echo $id?></td> -->
+                              <td><?php echo $add_equipment;?></td>
+                              <td><?php echo $quantity;?></td>
+                              <td><?php echo $purchase;?></td>
                               <td><?php echo $date?></td>
-                              <td>
-                                <a href="Backend/edit/equipment_edit.php?id=<?php echo $id?>" style="color:orange"><i class="fa fa-edit mr-2"></i></a>
-                                <a href="Backend/delete/equipment.php?id=<?php echo $id?>" style="color:red"><i class="fa fa-trash"></i></a>
-                                
-                              </td>
+                              
                             </tr>
 
                           <?php
@@ -142,7 +152,7 @@
   </div>
   <!-- /.content-wrapper -->
   <?php
-      @include('../../Components/footer.php');
+      @include('../../../Components/footer.php');
     ?>
 
   <!-- Control Sidebar -->
@@ -154,16 +164,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="../../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {

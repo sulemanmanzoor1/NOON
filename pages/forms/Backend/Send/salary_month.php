@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
      }else{
       foreach($services = ($_POST['services']) as $ss){
          $value_s[] = $ss;
-         $s = implode("&nbsp;&nbsp; ,  &nbsp;&nbsp; ", $value_s);
+         $s = implode("&nbsp;&nbsp; ,  ", $value_s);
       }
      }
 
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
       foreach($price = ($_POST['price']) as $pr){
          // $sum += $pr;
          $value_p[] = $pr;
-         $sum = implode("&nbsp;&nbsp; ,  &nbsp;&nbsp; ", $value_p);
+         $sum = implode("&nbsp;&nbsp; , ", $value_p);
       }
 
       if(empty($_POST['piece'])) {
@@ -52,13 +52,13 @@ if(isset($_POST['submit'])){
          foreach($piece = ($_POST['piece']) as $piece){
             // $sum += $pr;
             $value_pi[] = $piece;
-            $pi = implode("&nbsp;&nbsp; ,  &nbsp;&nbsp; ", $value_pi);
+            $pi = implode("&nbsp;&nbsp; , ", $value_pi);
          }
       
      }
 
 
-   $save = mysqli_query($con,"INSERT INTO `salary` (`s_name`, `services`, `price`, `piece`) VALUES ('$name', '$s\n', '$sum','$pi')");
+   $save = mysqli_query($con,"INSERT INTO `salary` (`s_name`, `services`, `price`, `piece`) VALUES ('$name', '$s\n', '$sum\n','$pi\n')");
 
      if($save){
          //  echo "<h1>submit success</h1>";

@@ -1,56 +1,66 @@
 <?php
-    include('../connection.php');
-    $id="";
-    $id = $_GET["id"];
+  @include('../connection.php');   
   
-    $select = mysqli_query($con,"SELECT * FROM `monthly` WHERE id=".$id);
-    $edit = mysqli_fetch_assoc($select);
+  $id="";
+  $id = $_GET["id"];
+
+  $select = mysqli_query($con,"SELECT * FROM `daily_usage` WHERE id=".$id);
+  $edit = mysqli_fetch_assoc($select);
+
 ?>
+
 <?php
-    $emp_name = $emp_desig = $emp_pay = $date ="";
-    if(isset($_POST['update'])){
-  
-      if(empty($_POST['emp_name'])) {
-        echo "<script> alert(Please fill all field) </script>";
-        die();
-     }else{
-      if (preg_match("/^[A-Za-z- ']*$/",$emp_name)) 
-      {
-        $emp_name=$_POST['emp_name'];
-      }
-     }
-  
-     if(empty($_POST['emp_desig'])) {
-        echo "<script> alert(Please fill all field) </script>";
-        die();
-     }else{
-        $emp_desig=$_POST['emp_desig'];
-     }
-     
-     if(empty($_POST['emp_pay'])) {
-        echo "<script> alert(Please fill all field) </script>";
-        die();
-     }else{
-        $emp_pay=$_POST['emp_pay'];
-     }
-     
-     if(empty($_POST['date'])) {
-        echo "<script> alert(Please fill all field) </script>";
-        die();
-     }else{
-        $date=$_POST['date'];
-     }
-     
-        $edit = mysqli_query($con, "UPDATE `monthly` SET `emp_name`='$emp_name',`emp_desig`='$emp_desig',`emp_pay`='$emp_pay',`date`='$date' WHERE id=".$id);
+$name = $sale_name = $totalamount = $receive = $date = ""; 
 
-        if($edit){
-            // echo "Done";
-            header("location:../../record_monthly.php");
-        }else{
-            echo "Query Failed";
-        }
+if(isset($_POST['update'])){
+    $id = $_GET['id'];
+   if(empty($_POST['date'])) {
+    echo "<script> alert(Please fill all field) </script>";
+    die();
+   }else{
+    $date=$_POST['date'];
+   }
 
-    }
+   if(empty($_POST['name'])) {
+    echo "<script> alert(Please fill all field) </script>";
+    die();
+   }else{
+    $name=$_POST['name'];  
+   }
+    
+   if(empty($_POST['sale_name'])) {
+      echo "<script> alert(Pleade fill all field) </script>";
+      die();
+     }else{
+      $sale_name=$_POST['sale_name'];  
+     }
+
+     if(empty($_POST['totalamount'])) {
+      echo "<script> alert(Please fill all field) </script>";
+      die();
+     }else{
+      $totalamount=$_POST['totalamount'];  
+     }
+
+     if(empty($_POST['receive'])) {
+      echo "<script> alert(Please fill all field) </script>";
+      die();
+     }else{
+      $receive=$_POST['receive'];  
+     }
+
+   $query = mysqli_query($con,"UPDATE `daily_usage` SET `name`='$name',`sale_name`='$sale_name',`totalamount`='$totalamount',`receive`='$receive',`date`='$date' WHERE id=".$id);
+   if($query){
+      // echo "Correct query";
+    header("location:../../record_usage.php");
+        
+   }else{
+    echo "wrong query";
+
+   }
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -95,6 +105,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
   
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -118,105 +129,101 @@
     include('component/sidebar.php');
   ?>
 
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Salary <small style="font-size:11px;">Edit</small></h1>
-          </div><!-- /.col -->
+            <h1>Add Daily Usage <small style="font-size: 11px;">Edit</small></h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Salary</li>
+              <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+              <li class="breadcrumb-item active">Add Daily Usage </li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
-    <div class="content">
+    <section class="content">
       <div class="container-fluid">
-        <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <!-- left column -->
-            <div class="col-md-12">
-              <!-- jquery validation -->
-              <div class="card card-primary">
-                <div class="card-header">
-                  
-                </div>
-                <!-- /.card-header -->
-                  <!-- form start -->
-                  <form id="frm" action="" method="POST">
-                    <div class="row">
-                      <div class="card-body">
-                        <div class="col-md-12">
-                          <div class="row">
-                          <input type="hidden" value="<?php echo $edit['id'];?>">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="emp_name" class="form-control" id="" value="<?php echo $edit['emp_name'];?>" placeholder="Enter Employee Name">
-                              </div>
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                
+              </div>
+              <!-- /.card-header -->
+                <!-- form start -->
+                <form id="frm" action="" method="POST">
+                <input type="hidden" value="<?php echo $edit['id'];?>">
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Select Date</label>
+                              <input type="Date" name="date" class="form-control" id="exampleInputEmail1" value="<?php echo $edit['date'];?>">
                             </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Employee Desigination</label>
-                                <input type="text" name="emp_desig" class="form-control" id="" value="<?php echo $edit['emp_desig'];?>" placeholder="Enter Employee Desigination">
-                              </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Customer Name</label>
+                              <input type="text" name="name" class="form-control" id="add_equipment" value="<?php echo $edit['name']; ?>" placeholder="Enter Name">
                             </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Pay</label>
-                                <input type="number" name="emp_pay" class="form-control" id="" value="<?php echo $edit['emp_pay'];?>" placeholder="Enter Pay">
-                              </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Product Sale Name </label>
+                              <input type="text" name="sale_name" class="form-control" id="quantity" value="<?php echo $edit['sale_name']; ?>" placeholder="Enter Product Name ">
                             </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Date</label>
-                                <input type="date" name="date" class="form-control" id="" value="<?php echo $edit['date'];?>">
-                              </div>
+                          </div>
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Total Amount</label>
+                              <input type="number" name="totalamount" class="form-control " id="purchase" value="<?php echo $edit['totalamount']; ?>" placeholder="Enter Price">
+                            </div>
+                          </div>
+
+                          <div class="col-md-6 ">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" class="">Receive Amount</label>
+                              <input type="number" name="receive" class="form-control " id="purchase" value="<?php echo $edit['receive']; ?>" placeholder="Enter Price">
                             </div>
                           </div>
                         </div>
-                        
                       </div>
+                      
                     </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                      <button type="submit" name="update" class="btn btn-primary">Update</button>
-                    </div>
-                  </form>
-              </div>
-              <!-- /.card -->
-              </div>
-            <!--/.col (left) -->
-            <!-- right column -->
-            <div class="col-md-6">
-
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
+                  </div>
+                </form>
             </div>
-            <!--/.col (right) -->
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
           </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
-        </section>
+          <!--/.col (right) -->
+        </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </div>
+      </div><!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
   <?php
       @include('../../../../Components/footer.php');
     ?>

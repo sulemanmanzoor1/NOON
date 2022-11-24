@@ -22,7 +22,7 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <!-- Jquery validation plug in  -->
    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-  <script src="../../cdist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
+  <script src="../../dist/js/jquery-validation-1.19.5/dist/additional-methods.min.js"></script>
   <script src="../../dist/js/jquery-validation-1.19.5/src/additional/forselect.js"></script>
   <script src="../../dist/js/validation.js"></script>
   <!-- search -->
@@ -66,13 +66,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>All Stitching </h1>
+              <h1>All Expense </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-                <li class="breadcrumb-item active">Stitching Report</li>
-               
+                <!-- <li class="breadcrumb-item"><a href="../../index.php">Home</a></li> -->
+                <li class="breadcrumb-item active">Expense Report</li>
+                
               </ol>
             </div>
           </div>
@@ -94,7 +94,7 @@
                 <!-- form start -->
 
 
-                <form id="frm" action="report/stiching.php" method="POST">
+                <form id="frm" action="report/expense.php" method="POST">
                   <div class="row">
                     <div class="card-body">
                       <div class="col-12">

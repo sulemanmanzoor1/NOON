@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salary - Contract</title>
+  <title>ZG Grament</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -136,21 +136,6 @@
                                   <td><input class="btn btn-success" type="button" value="+" id="add" name="add"></td>
                               </tr>
                             </table>
-                            <!-- /////////////////////////////// -->
-                              <!-- <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Services</label>
-                                  <input type="text" name="services" class="form-control" id="" placeholder="Enter Employee Services">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Price</label>
-                                  <input type="text" name="price" class="form-control" id="" placeholder="Enter Rate">
-                                  
-                                </div>
-                              </div> -->
-                            <!-- /////////////////////////////// -->
                           </div>
                         </div>
                         
